@@ -3,6 +3,8 @@ import FileUploader from '../components/FileUploader';
 import requestExtendedImage from '../images/guide/request_extended.png';
 import requestDataButtonImage from '../images/guide/request_data_button.png';
 import confirmationEmailImage from '../images/guide/confirmation_email.png';
+import privacySettingsPreparingImage from '../images/guide/privacy_settings_preparing.png';
+import preparingExtendedImage from '../images/guide/preparing_extended.png';
 import dataReadyEmailImage from '../images/guide/data_ready_email.png';
 
 const Guide = () => {
@@ -18,13 +20,14 @@ const Guide = () => {
             </div>
             <div className='step'>
                 <h3>2</h3>
-                <p>If you're asked to confirm your request through an email, do so:</p>
+                <p>You'll be asked to confirm your request through an email. Do so:</p>
                 <img src={confirmationEmailImage} alt="Confirmation email" />
             </div>
             <div className='step'>
                 <h3>3</h3>
                 <p>Return to the privacy settings page. The "Download your data" section should now look like this:</p>
-                <img alt='' />
+                <img src={privacySettingsPreparingImage} alt='Image of Privacy Settings page header with a notice that your data is being prepared.' />
+                <img src={preparingExtendedImage} alt='Screenshot showing that your Extended Streaming History data is being prepared and may take up to 30 days to be ready' />
             </div>
             <div className='step'>
                 <h3>4</h3>
