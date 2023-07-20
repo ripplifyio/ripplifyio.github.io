@@ -17,7 +17,7 @@ body {
 .App {
 }
 header {
-    padding: 20px;
+    padding: 15px 15px 0;
     max-width: 8in;
     margin: 0 auto;
     text-align: center;
@@ -25,59 +25,6 @@ header {
 #logo {
 }
 
-/*
-.svg-filters {
-  position: absolute;
-  visibility: hidden;
-  width: 1px;
-  height: 1px; }
-.button--10 {
-  -webkit-font-smoothing: antialiased;
-  background-color: #222;
-  border: none;
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85em;
-  font-weight: 700;
-  text-decoration: none;
-  user-select: none;
-  letter-spacing: 0.1em;
-  color: white;
-  padding: 20px 40px;
-  text-transform: uppercase;
-  -webkit-transition: background-color 0.1s ease-out;
-  -moz-transition: background-color 0.1s ease-out;
-  transition: background-color 0.1s ease-out; }
-  .button--10:hover {
-    background-color: #2CD892;
-    color: #fff; }
-  .button--10:focus {
-    outline: none;
-    color: #fff; }
-.button--10 {
-  position: relative;
-  background: none;
-  z-index: 0;
-  width: 135px; }
-  .button--10:hover {
-    background: none; }
-  .button--10:hover .button__bg {
-    background: #2CD892; }
-  .button--10 .button__bg {
-    transform: translateZ(0);
-    outline: 90px solid transparent !important;
-    background: #222;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    -webkit-transition: background 0.1s ease-out;
-    -moz-transition: background 0.1s ease-out;
-    transition: background 0.1s ease-out;
-    border-radius: 40px; }
-*/
 h1 {
     color: #1DB954;
     margin: 0;
