@@ -1,5 +1,6 @@
 import React from 'react';
 import FileUploader from '../components/FileUploader';
+import requestExtendedImage from '../images/guide/request_extended.png';
 import confirmationEmailImage from '../images/guide/confirmation_email.png';
 import dataReadyEmailImage from '../images/guide/data_ready_email.png';
 
@@ -11,7 +12,7 @@ const Guide = () => {
             <div className='step'>
                 <h3>1</h3>
                 <p>To do so, visit <a href="https://www.spotify.com/ca-en/account/privacy">Spotify's Privacy Settings</a> and scroll to the bottom section, "Download your data." Request <strong>Extended Streaming History</strong> (Account data and Technical log information are not necessary).</p>
-                <img alt="PLACEHOLDER FOR A SCREENSHOT" />
+                <img src={requestExtendedImage} alt='Screenshot showing the Spotify privacy settings page with "Extended streaming history" selected' />
             </div>
             <div className='step'>
                 <h3>2</h3>
@@ -21,7 +22,7 @@ const Guide = () => {
             <div className='step'>
                 <h3>3</h3>
                 <p>Return to the privacy settings page. The "Download your data" section should now look like this:</p>
-                <img alt="PLACEHOLDER FOR A SCREENSHOT" />
+                <img alt='' />
             </div>
             <div className='step'>
                 <h3>4</h3>
