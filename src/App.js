@@ -49,14 +49,14 @@ function App() {
                 <div>
                     <Logo />
                 </div>
-                <h1>Riverify</h1>
-                <Navbar isLoggedIn={Boolean(token)} logout={logout} />
+                <h1>Ripplify</h1>
             </header>
             {!token
                 ? <Splash />
                 : <Guide />
             }
             <Viewer example={!Boolean(token)} />
+            <Navbar isLoggedIn={Boolean(token)} logout={logout} />
         </div>
     );
 }

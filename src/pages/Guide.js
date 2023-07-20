@@ -11,7 +11,7 @@ const Guide = () => {
     return (
         <article>
             <h2>To render your music river, first upload your Spotify listening history</h2>
-            <p>In order to generate your history graph, you'll need to download your Extended Streaming History from Spotify and upload it to Riverify.</p>
+            <p>In order to generate your history graph, you'll need to download your Extended Streaming History from Spotify and upload it to Ripplify.</p>
             <div className='step'>
                 <h3>1</h3>
                 <p>To do so, visit <a href="https://www.spotify.com/ca-en/account/privacy">Spotify's Privacy Settings</a> and scroll to the bottom section, "Download your data." Request <strong>Extended Streaming History</strong> (Account data and Technical log information are not necessary).</p>
@@ -31,7 +31,7 @@ const Guide = () => {
             </div>
             <div className='step'>
                 <h3>4</h3>
-                <p>Now, wait for the arrival of your data dump by email. Regrettably, as indicated on the page, <strong>the Extended Streaming History data can take anywhere from 1 to 30 days for Spotify to compile,</strong> so you may have to wait a while. Unfortunately there's no way to work around this waiting period, but this website will remain ready to generate your music river graph when you receive your data.</p>
+                <p>Now, wait for the arrival of your data dump by email. Regrettably, as indicated on the page, <strong>the Extended Streaming History data can take anywhere from 1 to 30 days for Spotify to compile,</strong> so you may have to wait a while. Unfortunately there's no way to work around this waiting period, but Ripplify will remain ready to generate your music river graph when you receive your data.</p>
                 <img alt="PLACEHOLDER FOR A SCREENSHOT OR ICON" />
             </div>
             <div className='step'>
