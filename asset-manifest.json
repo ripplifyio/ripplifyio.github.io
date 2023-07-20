@@ -1,18 +1,22 @@
 {
   "files": {
     "main.css": "/ripplify_website/static/css/main.d0693cc8.css",
-    "main.js": "/ripplify_website/static/js/main.a5207899.js",
+    "main.js": "/ripplify_website/static/js/main.a845d8c7.js",
     "static/js/787.cda612ba.chunk.js": "/ripplify_website/static/js/787.cda612ba.chunk.js",
     "static/media/example.png": "/ripplify_website/static/media/example.6edb581bd7e41f966888.png",
+    "static/media/preparing_extended.png": "/ripplify_website/static/media/preparing_extended.c9cb162f6f74cc10a736.png",
     "static/media/data_ready_email.png": "/ripplify_website/static/media/data_ready_email.407ccb48f9b2f451ad61.png",
+    "static/media/request_extended.png": "/ripplify_website/static/media/request_extended.f83321bb7328cfbd0671.png",
     "static/media/confirmation_email.png": "/ripplify_website/static/media/confirmation_email.dcda04cfa89d7dba011e.png",
+    "static/media/privacy_settings_preparing.png": "/ripplify_website/static/media/privacy_settings_preparing.25dc3693c266066c33d8.png",
+    "static/media/request_data_button.png": "/ripplify_website/static/media/request_data_button.c1b3617b850bf51c930b.png",
     "index.html": "/ripplify_website/index.html",
     "main.d0693cc8.css.map": "/ripplify_website/static/css/main.d0693cc8.css.map",
-    "main.a5207899.js.map": "/ripplify_website/static/js/main.a5207899.js.map",
+    "main.a845d8c7.js.map": "/ripplify_website/static/js/main.a845d8c7.js.map",
     "787.cda612ba.chunk.js.map": "/ripplify_website/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0693cc8.css",
-    "static/js/main.a5207899.js"
+    "static/js/main.a845d8c7.js"
   ]
 }
