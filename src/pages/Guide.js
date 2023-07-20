@@ -32,7 +32,6 @@ const Guide = () => {
             <div className='step'>
                 <h3>4</h3>
                 <p>Now, wait for the arrival of your data dump by email. Regrettably, as indicated on the page, <strong>the Extended Streaming History data can take anywhere from 1 to 30 days for Spotify to compile,</strong> so you may have to wait a while. Unfortunately there's no way to work around this waiting period, but Ripplify will remain ready to generate your music river graph when you receive your data.</p>
-                <img alt="PLACEHOLDER FOR A SCREENSHOT OR ICON" />
             </div>
             <div className='step'>
                 <h3>5</h3>
@@ -41,7 +40,7 @@ const Guide = () => {
             </div>
             <div className='step'>
                 <h3>6</h3>
-                <p>The file will likely be called <tt>my_spotify_data.zip</tt>. Upload it below:</p>
+                <p>When you click Download (and log in if necessary), a file will be downloaded called <tt>my_spotify_data.zip</tt>. Upload it below:</p>
                 <FileUploader />
             </div>
 

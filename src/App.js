@@ -45,10 +45,7 @@ function App() {
     return (
         <div className='App'>
             <header>
-
-                <div>
-                    <Logo />
-                </div>
+                <Logo />
                 <h1>Ripplify</h1>
             </header>
             {!token
