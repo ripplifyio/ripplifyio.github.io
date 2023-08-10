@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import exampleGraphImage from '../images/example.png';
 
+import { render }  from '../services/API';
+
 const Viewer = ({ example }) => {
+    const [graphImage, setGraphImage] = useState(exampleGraphImage);
+
     return (
         <div className={`viewer ${example ? 'example' : ''}`}>
             <div className='options'>
@@ -48,8 +52,12 @@ const Viewer = ({ example }) => {
                     </div>
                 </div>
             </div>
-            <div className='chart' style={{ backgroundImage: `url(${exampleGraphImage})` }}>
-            </div>
+            <button onClick={() => {
+                render({}).then((graph) => {
+                    setGraphImage(graph.url);
+                });
+            }}>Render</button>
+            <img className='chart' src={graphImage} />
         </div>
     );
 };

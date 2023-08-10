@@ -43,8 +43,6 @@ const Guide = () => {
                 <p>When you click Download (and log in if necessary), a file will be downloaded called <tt>my_spotify_data.zip</tt>. Upload it below:</p>
                 <FileUploader />
             </div>
-
-            <p>You can order prints of your river image or divide it by year across many prints.</p>
         </article>
     );
 };
