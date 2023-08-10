@@ -29,6 +29,7 @@ function App() {
 
                     window.location.hash = '';
                     localStorage.setItem('token', token);
+                    localStorage.setItem('user', user);
                     setToken(token);
                 });
         }
@@ -38,8 +39,9 @@ function App() {
 
     const logout = () => {
         setToken('');
-        window.localStorage.removeItem('token');
-    }
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+    };
 
 
     return (
@@ -50,7 +52,9 @@ function App() {
             </header>
             {!token
                 ? <Splash />
-                : <Guide />
+                : (
+                    <Guide />
+                )
             }
             <Viewer example={!Boolean(token)} />
             <Navbar isLoggedIn={Boolean(token)} logout={logout} />
