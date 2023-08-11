@@ -42,12 +42,14 @@ a {
     text-align: center;
     margin-bottom: 50px;
 }
-.loginButton {
+button, a.button, input[type='submit'] {
     display: inline-block;
     background: #1DB954;
     color: black;
     text-decoration: none;
     padding: 10px 12px;
+    border: none;
+    font: inherit;
     border-radius: 50px;
 }
 
@@ -121,6 +123,10 @@ article {
 }
 .options .column {
     display: inline-block;
+    margin-right: 10px;
+}
+.column:last-child {
+    margin-right: 0;
 }
 select {
     font: inherit;
@@ -131,6 +137,10 @@ select {
     border-radius: 5px;
     padding: 10px 12px;
     border-radius: 50px;
+}
+input[type='submit'] {
+    display: block;
+    margin-top: 10px;
 }
 
 
