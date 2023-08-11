@@ -91,15 +91,15 @@ export const uploadHistoryFile = (file) => {
 export const render = (options) => {
 
     options = {
-        //'mode': 'artists',
-        'mode': 'artist',
-        'artist_to_show': 'Ha Hyun Sang',
+        'mode': 'artists',
+        //'mode': 'artist',
+        //'artist_to_show': 'Ha Hyun Sang',
         //'hidden_artists': ['Drake', 'Skrillex', 'Ed Sheeran', 'Kanye West'],
         'hidden_artists': [],
         'max_artist_count': 100,
-        //'graph_type': 'expand',
+        'graph_type': 'expand',
         //'graph_type': 'wiggle',
-        'graph_type': 'silhouette',
+        //'graph_type': 'silhouette',
     };
     return post('render', options);
 };
