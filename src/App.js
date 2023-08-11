@@ -17,6 +17,7 @@ function App() {
     useEffect(() => {
         const hash = window.location.hash;
         let token = localStorage.getItem('token');
+        let user = JSON.parse(localStorage.getItem('user'));
 
         if (!token && hash) {
             const spotifyToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
