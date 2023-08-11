@@ -48,7 +48,6 @@ function App() {
         <div className='App'>
             <header>
                 <Logo />
-                <h1>Ripplify</h1>
             </header>
             {!token
                 ? <Splash />
