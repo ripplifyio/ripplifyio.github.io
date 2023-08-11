@@ -90,6 +90,7 @@ export const uploadHistoryFile = (file) => {
 
 export const render = (options) => {
 
+    /*
     options = {
         'mode': 'artists',
         //'mode': 'artist',
@@ -101,5 +102,6 @@ export const render = (options) => {
         //'graph_type': 'wiggle',
         //'graph_type': 'silhouette',
     };
+    */
     return post('render', options);
 };
