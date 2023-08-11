@@ -23,12 +23,18 @@ header {
     text-align: center;
 }
 #logo {
+    width: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
 }
-
 h1 {
     color: #1DB954;
     margin: 0;
+    display: inline-block;
+    vertical-align: middle;
 }
+
 a {
     color: #1DB954;
 }
