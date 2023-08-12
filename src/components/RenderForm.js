@@ -17,9 +17,7 @@ const RenderForm = ({ setGraphImage }) => {
     const handleChange = (event) => {
         setState({
             ...state,
-            [event.target.name]: event.target.type === 'checkbox'
-                                    ? event.target.checked
-                                    : event.target.value,
+            [event.target.name]: event.target.value,
         });
     };
 
@@ -50,19 +48,6 @@ const RenderForm = ({ setGraphImage }) => {
                         <option value='classic'>Classic</option>
                     </select>
                 </div>
-                <div className='option'>
-                    <label htmlFor='mode'>Rendering mode</label>
-                    <select name='mode' onChange={handleChange}>
-                        <option value='artists'>Top artists</option>
-                        <option value='artist'>Top songs from an artist</option>
-                    </select>
-                </div>
-                <div className='option'>
-                    <label>
-                        Artist to show songs from
-                        <input type='text' name='artistToShow' onChange={handleChange} />
-                    </label>
-                </div>
                 {/*
                 <div className='option'>
                     <label htmlFor='ordering'>Ordering</label>
@@ -77,8 +62,21 @@ const RenderForm = ({ setGraphImage }) => {
             </div>
             <div className='column'>
                 <div className='option'>
+                    <label htmlFor='mode'>Rendering mode</label>
+                    <select name='mode' onChange={handleChange}>
+                        <option value='artists'>Top artists</option>
+                        <option value='artist'>Top songs from an artist</option>
+                    </select>
+                </div>
+                <div className='option'>
                     <label>
-                        <input type='checkbox' name='sillouhette' checked onChange={handleChange} />
+                        Artist to show songs from
+                        <input type='text' name='artistToShow' onChange={handleChange} />
+                    </label>
+                </div>
+                <div className='option'>
+                    <label>
+                        <input type='checkbox' name='sillouhette' value={true} onChange={handleChange} />
                         Weight graph to center?
                     </label>
                 </div>

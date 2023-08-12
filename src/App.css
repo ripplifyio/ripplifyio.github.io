@@ -51,6 +51,7 @@ button, a.button, input[type='submit'] {
     border: none;
     font: inherit;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 article {
