@@ -5,16 +5,18 @@ import { render }  from '../services/API';
 
 const RenderForm = ({ setGraphImage }) => {
     const [state, setState] = useState({
-        chartType: 'river',
+        mode: 'artists',
+        graphType: 'river',
         colorScheme: 'rainbow',
         silouhette: true,
         artistCount: 100,
-        excludedArtists: '',
+        hiddenArtists: '',
     });
     const [changed, setChanged] = useState(true);
 
     const handleChange = (event) => {
         setState({
+            ...state,
             [event.target.name]: event.target.type === 'checkbox'
                                     ? event.target.checked
                                     : event.target.value,
@@ -25,6 +27,8 @@ const RenderForm = ({ setGraphImage }) => {
         event.preventDefault();
         render(state).then((graph) => {
             setGraphImage(graph.url);
+        }).catch((error) => {
+            alert(error);
         });
     };
 
@@ -32,18 +36,32 @@ const RenderForm = ({ setGraphImage }) => {
         <form className='options' onSubmit={handleSubmit}>
             <div className='column'>
                 <div className='option'>
-                    <label htmlFor='chartType'>Chart type</label>
-                    <select name='chartType' onChange={handleChange}>
+                    <label htmlFor='graphType'>Graph type</label>
+                    <select name='graphType' onChange={handleChange}>
                         <option value='river'>River</option>
+                        <option value='hills'>Hills</option>
                         <option value='stretch'>Stretch</option>
                     </select>
                 </div>
                 <div className='option'>
                     <label htmlFor='colorScheme'>Color Scheme</label>
-                    <select name='colorScheme' id='colorScheme' onChange={handleChange}>
+                    <select name='colorScheme' onChange={handleChange}>
                         <option value='rainbow'>Rainbow</option>
                         <option value='classic'>Classic</option>
                     </select>
+                </div>
+                <div className='option'>
+                    <label htmlFor='mode'>Rendering mode</label>
+                    <select name='mode' onChange={handleChange}>
+                        <option value='artists'>Top artists</option>
+                        <option value='artist'>Top songs from an artist</option>
+                    </select>
+                </div>
+                <div className='option'>
+                    <label>
+                        Artist to show songs from
+                        <input type='text' name='artistToShow' onChange={handleChange} />
+                    </label>
                 </div>
                 {/*
                 <div className='option'>
@@ -73,7 +91,7 @@ const RenderForm = ({ setGraphImage }) => {
                 <div className='option'>
                     <label>
                         Artists to hide (comma separated)
-                        <input type='text' name='excludedArtists' id='excludedArtists' />
+                        <input type='text' name='hiddenArtists' id='hiddenArtists' />
                     </label>
                 </div>
             </div>
