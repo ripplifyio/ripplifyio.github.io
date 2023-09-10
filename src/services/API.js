@@ -78,7 +78,11 @@ export const authorize = (spotifyToken) => {
 
 export const getUser = () => {
 
-}
+};
+
+export const getHistoryFiles = () => {
+    return get('history_files');
+};
 
 export const uploadHistoryFile = (file) => {
     //let data = new FormData()
@@ -86,7 +90,7 @@ export const uploadHistoryFile = (file) => {
     return post('history_files', file, {
         'Content-Type': 'application/zip',
     })
-}
+};
 
 export const render = (options) => {
     return post('render', options);
