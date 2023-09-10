@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 body {
-    background: #000;
+    background: #111;
     color: white;
     font-family: 'Lexend Deca', sans-serif;
 }
@@ -23,12 +23,13 @@ header {
     text-align: center;
 }
 #logo {
-    width: 60px;
+    width: 50px;
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
 }
 h1 {
+    font-size: 50px;
     color: #1DB954;
     margin: 0;
     display: inline-block;
@@ -125,6 +126,7 @@ article {
 .options .column {
     display: inline-block;
     margin-right: 10px;
+    vertical-align: top;
 }
 .column:last-child {
     margin-right: 0;
@@ -138,6 +140,10 @@ select {
     border-radius: 5px;
     padding: 10px 12px;
     border-radius: 50px;
+}
+.slider input,
+.slider span {
+    vertical-align: middle;
 }
 input[type='submit'] {
     display: block;
