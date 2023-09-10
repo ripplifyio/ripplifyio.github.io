@@ -12,12 +12,12 @@ import Splash from './pages/Splash';
 import Guide from './pages/Guide';
 
 function App() {
-    const [token, setToken] = useState('');
+    const [token, setToken] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         const hash = window.location.hash;
         let token = localStorage.getItem('token');
-        let user = JSON.parse(localStorage.getItem('user'));
 
         if (!token && hash) {
             const spotifyToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
@@ -39,22 +39,24 @@ function App() {
     }, [token]);
 
     const logout = () => {
-        setToken('');
+        setToken(null);
+        setUser(null);
         localStorage.removeItem('token');
         localStorage.removeItem('user');
     };
 
+    const getUser = () => {
+    };
 
     return (
         <div className='App'>
             <header>
                 <Logo />
+                <h1>Ripplify</h1>
             </header>
             {!token
                 ? <Splash />
-                : (
-                    <Guide />
-                )
+                : <Guide />
             }
             <Viewer example={!Boolean(token)} />
             <Navbar isLoggedIn={Boolean(token)} logout={logout} />
