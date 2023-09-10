@@ -9,8 +9,9 @@ const initialState = {
     },
 };
 
-export const fetchHistoryFiles = createAsyncThunk('fetchHistoryFiles', () => {
-    return getHistoryFiles();
+export const fetchHistoryFiles = createAsyncThunk('fetchHistoryFiles', async () => {
+    console.log('Doin it');
+    return await getHistoryFiles();
 });
 
 const slice = createSlice({
@@ -20,15 +21,15 @@ const slice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(fetchHistoryFiles.pending, (state, action) => {
-                state.status = 'loading';
+                state.historyFiles.status = 'loading';
             })
             .addCase(fetchHistoryFiles.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.value = action.payload;
+                state.historyFiles.status = 'succeeded';
+                state.historyFiles.value = action.payload;
             })
             .addCase(fetchHistoryFiles.rejected, (state, action) => {
-                state.status = 'failed';
-                state.error = action.error.message;
+                state.historyFiles.status = 'failed';
+                state.historyFiles.error = action.error.message;
             });
     },
 })
@@ -36,6 +37,7 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-//export const { } = postsSlice.actions;
+//export const { } = slice.actions;
 
 export const selectHistoryFiles = (state) => state.slice.historyFiles.value;
+export const selectHistoryFilesStatus = (state) => state.slice.historyFiles.status;
