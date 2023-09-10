@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import exampleGraphImage from '../images/example.png';
 
-import { render }  from '../services/API';
-
 import RenderForm from './RenderForm';
 
 const Viewer = ({ example }) => {
@@ -11,7 +9,7 @@ const Viewer = ({ example }) => {
     return (
         <div className={`viewer ${example ? 'example' : ''}`}>
             <RenderForm setGraphImage={setGraphImage} />
-            <img className='chart' src={graphImage} />
+            <img className='chart' alt='Graph of your music listening history' src={graphImage} />
         </div>
     );
 };

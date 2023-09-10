@@ -26,7 +26,7 @@ const Guide = () => {
             <div className='step'>
                 <h3>3</h3>
                 <p>Return to the privacy settings page. The "Download your data" section should now look like this:</p>
-                <img src={privacySettingsPreparingImage} alt='Image of Privacy Settings page header with a notice that your data is being prepared.' />
+                <img src={privacySettingsPreparingImage} alt='Spotify Privacy Settings page header with a notice that your data is being prepared.' />
                 <img src={preparingExtendedImage} alt='Screenshot showing that your Extended Streaming History data is being prepared and may take up to 30 days to be ready' />
             </div>
             <div className='step'>
