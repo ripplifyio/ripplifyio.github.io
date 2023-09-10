@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import exampleGraphImage from '../images/example.png';
 
 import RenderForm from './RenderForm';
 
 const Viewer = ({ example }) => {
-    const [graphImage, setGraphImage] = useState(exampleGraphImage);
+    const [graphImage, setGraphImage] = useState(null);
 
     return (
         <div className={`viewer ${example ? 'example' : ''}`}>

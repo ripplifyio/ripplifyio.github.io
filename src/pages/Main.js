@@ -24,6 +24,7 @@ function Main() {
     useEffect(() => {
         const hash = window.location.hash;
         let token = localStorage.getItem('token');
+        setToken(token);
 
         if (token) {
             load();
@@ -45,7 +46,6 @@ function Main() {
             }
         }
 
-        setToken(token);
     }, [token, load]);
 
     const logout = () => {
@@ -64,9 +64,10 @@ function Main() {
             </header>
             {!token
                 ? <Splash />
-                : <Guide />
+                : (historyFiles !== null && historyFiles.length > 0
+                        ? <Viewer example={!Boolean(token)} />
+                        : <Guide />)
             }
-            <Viewer example={!Boolean(token)} />
             <Navbar isLoggedIn={Boolean(token)} logout={logout} />
         </>
     );
