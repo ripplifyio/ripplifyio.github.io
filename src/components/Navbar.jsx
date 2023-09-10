@@ -4,7 +4,7 @@ const Navbar = ({ isLoggedIn, logout }) => {
     return (
         <nav>
             {isLoggedIn && (
-                <a href='#' onClick={logout}>Logout</a>
+                <button onClick={logout}>Logout</button>
             )}
         </nav>
     );

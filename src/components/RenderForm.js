@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import exampleGraphImage from '../images/example.png';
 
 import { render }  from '../services/API';
 
@@ -15,6 +14,7 @@ const RenderForm = ({ setGraphImage }) => {
     const [changed, setChanged] = useState(true);
 
     const handleChange = (event) => {
+        setChanged(true);
         setState({
             ...state,
             [event.target.name]: event.target.value,
@@ -23,6 +23,7 @@ const RenderForm = ({ setGraphImage }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setChanged(false);
         render(state).then((graph) => {
             setGraphImage(graph.url);
         }).catch((error) => {
@@ -93,7 +94,7 @@ const RenderForm = ({ setGraphImage }) => {
                     </label>
                 </div>
             </div>
-            <input type='submit' value='Generate Graph' />
+            <input type='submit' value='Generate Graph' disabled={!changed} />
         </form>
     );
 };
