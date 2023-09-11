@@ -43,20 +43,6 @@ a {
     text-align: center;
     margin-bottom: 50px;
 }
-button, a.button, input[type='submit'] {
-    display: inline-block;
-    background: #1DB954;
-    color: black;
-    text-decoration: none;
-    padding: 10px 12px;
-    border: none;
-    font: inherit;
-    border-radius: 50px;
-    cursor: pointer;
-}
-.accent, input[type='submit'].accent {
-    background: #56CBF9;
-}
 
 article {
     text-align: center;
@@ -134,6 +120,29 @@ article {
 .column:last-child {
     margin-right: 0;
 }
+.option {
+    margin-bottom: 10px;
+}
+input {
+    outline: 0;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #1DB954;
+}
+button, a.button, input[type='submit'] {
+    display: inline-block;
+    background: #1DB954;
+    color: black;
+    text-decoration: none;
+    padding: 10px 12px;
+    border: none;
+    font: inherit;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.accent, input[type='submit'].accent {
+    background: #56CBF9;
+}
 select {
     font: inherit;
     display: block;
@@ -143,6 +152,13 @@ select {
     border-radius: 5px;
     padding: 10px 12px;
     border-radius: 50px;
+    cursor: pointer;
+}
+input[type='text'] {
+    display: block;
+    font: inherit;
+    padding: 8px 0;
+    color: white;
 }
 .slider input,
 .slider span {
@@ -154,6 +170,7 @@ input[type='submit'] {
 }
 input[type='submit'][disabled] {
     opacity: 0.5;
+    cursor: default;
 }
 
 
