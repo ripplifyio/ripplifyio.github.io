@@ -199,6 +199,9 @@ input[type='submit'][disabled] {
     align-items: center;
     animation: colors 30s infinite linear;
 }
+.placeholder.loading {
+    animation-duration: 3s;
+}
 
 @keyframes colors {
     0% { background-color: #F44336; }
