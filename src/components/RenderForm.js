@@ -81,12 +81,14 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                         <option value='artist'>Top songs by an artist</option>
                     </select>
                 </div>
-                <div className='option'>
-                    <label>
-                        Artist to show songs from
-                        <input type='text' name='artistToShow' onChange={handleChange} />
-                    </label>
-                </div>
+                {state.mode === 'artist' && (
+                    <div className='option'>
+                        <label>
+                            Artist to show songs from
+                            <input type='text' name='artistToShow' onChange={handleChange} />
+                        </label>
+                    </div>
+                )}
                 <div className='option'>
                     <label>
                         Number of artists to include?
