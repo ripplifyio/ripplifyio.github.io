@@ -61,6 +61,7 @@ function Main() {
         <>
             <header>
                 <Logo />
+                <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
             {!token
                 ? <Splash />
@@ -68,7 +69,6 @@ function Main() {
                         ? <Viewer example={!Boolean(token)} />
                         : <Guide />)
             }
-            <Navbar isLoggedIn={Boolean(token)} logout={logout} />
         </>
     );
 }
