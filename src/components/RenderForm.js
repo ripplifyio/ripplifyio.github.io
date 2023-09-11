@@ -12,6 +12,9 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         silouhette: true,
         artistCount: 100,
         hiddenArtists: '',
+        granularity: 'month',
+        monthStart: null,
+        monthEnd: null,
     });
     const [changed, setChanged] = useState(true);
 
@@ -89,6 +92,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                         </label>
                     </div>
                 )}
+            </div>
+            <div className='column'>
                 <div className='option'>
                     <label>
                         Number of artists to include?
@@ -99,6 +104,28 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                     <label>
                         Artists to hide (comma separated)
                         <input type='text' name='hiddenArtists' id='hiddenArtists' onChange={handleChange} />
+                    </label>
+                </div>
+            </div>
+            <div className='column'>
+                <div className='option'>
+                    <label htmlFor='granularity'>Color Scheme</label>
+                    <select name='granularity' onChange={handleChange}>
+                        <option value='month'>Month</option>
+                        <option value='week'>Week</option>
+                        <option value='day'>Day</option>
+                    </select>
+                </div>
+                <div className='option'>
+                    <label>
+                        Custom start month (YYYY-MM)
+                        <input type='text' name='monthStart' id='monthStart' onChange={handleChange} />
+                    </label>
+                </div>
+                <div className='option'>
+                    <label>
+                        Custom end month (YYYY-MM)
+                        <input type='text' name='monthEnd' id='monthEnd' onChange={handleChange} />
                     </label>
                 </div>
             </div>
