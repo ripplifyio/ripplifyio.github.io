@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectHistoryFiles, fetchHistoryFiles } from '../slice';
+import { selectHistoryFiles, selectHistoryFilesStatus, fetchHistoryFiles } from '../slice';
 
 import { authorize } from '../services/API';
 
@@ -14,14 +14,19 @@ import Guide from './Guide';
 function Main() {
     const dispatch = useDispatch();
     const historyFiles = useSelector(selectHistoryFiles);
+    const historyFilesStatus = useSelector(selectHistoryFilesStatus);
 
     const [token, setToken] = useState(null);
 
     const load = () => {
-        dispatch(fetchHistoryFiles);
+        console.log(historyFilesStatus);
+        if (historyFilesStatus === 'idle') {
+            dispatch(fetchHistoryFiles());
+        }
     };
 
     useEffect(() => {
+
         const hash = window.location.hash;
         let token = localStorage.getItem('token');
         setToken(token);
@@ -38,23 +43,18 @@ function Main() {
                         const { token } = data;
                         console.log('Our token:', token);
 
-                        window.location.hash = '';
                         localStorage.setItem('token', token);
                         setToken(token);
+                        window.location.hash = '';
                         load();
                     });
             }
         }
-
-    }, [token, load]);
+    });
 
     const logout = () => {
         setToken(null);
         localStorage.removeItem('token');
-    };
-
-    const getUser = () => {
-
     };
 
     return (
