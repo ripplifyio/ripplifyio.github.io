@@ -183,7 +183,7 @@ input[type='submit'][disabled] {
 }
 
 
-.chart {
+.graph {
     width: 100vw;
     aspect-ratio: 16/9;
     background-size: contain;
@@ -223,13 +223,17 @@ input[type='submit'][disabled] {
     100% { background-color: #F44336; }
 }
 .loader {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .bars {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translate(-50%, -50%)
+    height: 50px;
+    margin-bottom: 10px;
 }
 
 .bar {
