@@ -54,6 +54,9 @@ button, a.button, input[type='submit'] {
     border-radius: 50px;
     cursor: pointer;
 }
+.accent, input[type='submit'].accent {
+    background: #56CBF9;
+}
 
 article {
     text-align: center;
@@ -148,6 +151,9 @@ select {
 input[type='submit'] {
     display: block;
     margin-top: 10px;
+}
+input[type='submit'][disabled] {
+    opacity: 0.5;
 }
 
 

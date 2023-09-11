@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { render }  from '../services/API';
-
 const Slider = ({ onChange, defaultValue, ...props }) => {
     const [value, setValue] = useState(defaultValue);
 

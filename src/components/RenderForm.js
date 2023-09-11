@@ -4,7 +4,7 @@ import Slider from './Slider';
 
 import { render }  from '../services/API';
 
-const RenderForm = ({ setGraphImage }) => {
+const RenderForm = ({ setGraphImage, setLoading }) => {
     const [state, setState] = useState({
         mode: 'artists',
         graphType: 'river',
@@ -26,6 +26,8 @@ const RenderForm = ({ setGraphImage }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setChanged(false);
+        setGraphImage(null);
+        setLoading(true);
         render(state).then((graph) => {
             setGraphImage(graph.url);
         }).catch((error) => {
@@ -73,10 +75,10 @@ const RenderForm = ({ setGraphImage }) => {
             </div>
             <div className='column'>
                 <div className='option'>
-                    <label htmlFor='mode'>Rendering mode</label>
+                    <label htmlFor='mode'>Show...</label>
                     <select name='mode' onChange={handleChange}>
                         <option value='artists'>Top artists</option>
-                        <option value='artist'>Top songs from an artist</option>
+                        <option value='artist'>Top songs by an artist</option>
                     </select>
                 </div>
                 <div className='option'>
@@ -98,7 +100,9 @@ const RenderForm = ({ setGraphImage }) => {
                     </label>
                 </div>
             </div>
-            <input type='submit' value='Generate Graph' disabled={!changed} />
+            <div className='column'>
+                <input type='submit' className='accent' value='Generate Graph' disabled={!changed} />
+            </div>
         </form>
     );
 };
