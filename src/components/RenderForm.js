@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Slider from './Slider';
+
 import { render }  from '../services/API';
 
 const RenderForm = ({ setGraphImage }) => {
@@ -42,6 +44,14 @@ const RenderForm = ({ setGraphImage }) => {
                         <option value='stretch'>Stretch</option>
                     </select>
                 </div>
+                {state.graphType === 'river' && (
+                    <div className='option'>
+                        <label>
+                            <input type='checkbox' name='sillouhette' value={true} onChange={handleChange} />
+                            Force vertical symmetry?
+                        </label>
+                    </div>
+                )}
                 <div className='option'>
                     <label htmlFor='colorScheme'>Color Scheme</label>
                     <select name='colorScheme' onChange={handleChange}>
@@ -77,20 +87,14 @@ const RenderForm = ({ setGraphImage }) => {
                 </div>
                 <div className='option'>
                     <label>
-                        <input type='checkbox' name='sillouhette' value={true} onChange={handleChange} />
-                        Weight graph to center?
-                    </label>
-                </div>
-                <div className='option'>
-                    <label>
                         Number of artists to include?
-                        <input type='range' min={20} max={500} name='artistCount' id='artistCount' defaultValue={100} onChange={handleChange} />
+                        <Slider min={20} max={500} name='artistCount' id='artistCount' defaultValue={100} onChange={handleChange} />
                     </label>
                 </div>
                 <div className='option'>
                     <label>
                         Artists to hide (comma separated)
-                        <input type='text' name='hiddenArtists' id='hiddenArtists' />
+                        <input type='text' name='hiddenArtists' id='hiddenArtists' onChange={handleChange} />
                     </label>
                 </div>
             </div>
