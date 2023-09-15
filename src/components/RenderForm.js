@@ -12,7 +12,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         silouhette: true,
         artistCount: 100,
         hiddenArtists: '',
-        granularity: 'month',
+        resolution: 'month',
         monthStart: null,
         monthEnd: null,
     });
@@ -109,8 +109,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
             </div>
             <div className='column'>
                 <div className='option'>
-                    <label htmlFor='granularity'>Color Scheme</label>
-                    <select name='granularity' onChange={handleChange}>
+                    <label htmlFor='resolution'>Time Resolution</label>
+                    <select name='resolution' onChange={handleChange}>
                         <option value='month'>Month</option>
                         <option value='week'>Week</option>
                         <option value='day'>Day</option>
