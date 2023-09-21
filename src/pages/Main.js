@@ -64,7 +64,8 @@ function Main() {
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
             {!token
-                ? <Splash />
+                //? <Splash />
+                ? <Guide />
                 : (historyFiles !== null && historyFiles.length > 0
                         ? <Viewer example={!Boolean(token)} />
                         : <Guide />)
