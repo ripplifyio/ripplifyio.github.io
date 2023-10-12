@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 
-const API_ROOT = 'http://localhost:5000';
-//const API_ROOT = 'https://api.ripplify.io';
+//const API_ROOT = 'http://localhost:5000';
+const API_ROOT = 'https://api.ripplify.io';
 
 export const get = (endpoint, headers = {}) => {
     return axios
