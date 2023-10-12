@@ -50,6 +50,26 @@ a {
 .splash {
     text-align: center;
     margin-bottom: 50px;
+    height: 70vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.splash h2 {
+    font-size: 60px;
+}
+.exampleImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+
+    z-index: -1;
+    opacity: 0.4;
 }
 
 article {
