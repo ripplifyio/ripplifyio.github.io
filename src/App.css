@@ -8,6 +8,8 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body {
     background: #111;
@@ -59,6 +61,7 @@ a {
 }
 .splash h2 {
     font-size: 60px;
+    margin-bottom: 30px;
 }
 .exampleImage {
     position: absolute;
@@ -69,7 +72,7 @@ a {
     object-fit: cover;
     z-index: -1;
     opacity: 0.4;
-    animation: hueshift 10s infinite;
+    animation: hueshift 10s infinite linear;
 }
 @keyframes hueshift {
     0% {
@@ -168,13 +171,17 @@ input {
 button, a.button, input[type='submit'] {
     display: inline-block;
     background: #1DB954;
-    color: black;
+    color: white;
     text-decoration: none;
     padding: 10px 12px;
     border: none;
     font: inherit;
     border-radius: 50px;
     cursor: pointer;
+}
+.button.big {
+    padding: 15px 20px;
+    font-size: 20px;
 }
 .accent, input[type='submit'].accent {
     background: #56CBF9;
