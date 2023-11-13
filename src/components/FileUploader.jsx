@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { uploadHistoryFile } from '../services/API';
 
 
 const FileUploader = () => {
+    const [uploading, setUploading] = useState(false);
+
     const upload = (e) => {
         console.log(e.target.files[0]);
+        setUploading(true);
         uploadHistoryFile(e.target.files[0]);
     };
 
@@ -12,7 +15,9 @@ const FileUploader = () => {
         <form className='uploader'>
             <input type='file' id='historyFile' accept='.zip' hidden onInput={upload} />
             <label htmlFor='historyFile'>
-                <p>Upload History File</p>
+                {uploading
+                    ? (<p>Uploading...</p>)
+                    : (<p>Upload History File</p>)}
             </label>
         </form>
     );
