@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Loader = ({ onChange, defaultValue, ...props }) => {
+const Loader = ({ onChange, defaultValue, caption = 'Rendering', ...props }) => {
     const [value, setValue] = useState(defaultValue);
 
     const handleChange = (event) => {
