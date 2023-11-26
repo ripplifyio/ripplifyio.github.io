@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Loader = ({ onChange, defaultValue, caption = 'Rendering', ...props }) => {
-    const [value, setValue] = useState(defaultValue);
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-        onChange(event);
-    };
-
+const Loader = ({ caption = 'Rendering', ...props }) => {
     return (
         <div className='loader'>
             <div className='bars'>
