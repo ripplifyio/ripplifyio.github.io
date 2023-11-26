@@ -7,6 +7,7 @@ import { authorize } from '../services/API';
 import Logo from '../components/Logo';
 import Navbar from '../components/Navbar';
 import Viewer from '../components/Viewer';
+import Loader from '../components/Loader';
 
 import Splash from './Splash';
 import Guide from './Guide';
@@ -65,9 +66,11 @@ function Main() {
             </header>
             {!token
                 ? <Splash />
-                : (historyFiles !== null && historyFiles.length > 0
+                : ((historyFiles === null)
+                    ? (<Loader caption='Loading' />)
+                    : (historyFiles.length > 0
                         ? <Viewer example={!Boolean(token)} />
-                        : <Guide />)
+                        : <Guide />))
             }
         </>
     );

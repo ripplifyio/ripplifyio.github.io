@@ -20,7 +20,7 @@ const Loader = ({ onChange, defaultValue, caption = 'Rendering', ...props }) => 
                 <div className='bar'></div>
                 <div className='bar'></div>
             </div>
-            <span>Rendering...</span>
+            <span>{caption}...</span>
         </div>
     );
 };
