@@ -14,7 +14,7 @@ const Guide = () => {
             <p>In order to generate your history graph, you'll need to download your Extended Streaming History from Spotify and upload it to Ripplify.</p>
             <div className='step'>
                 <h3>1</h3>
-                <p>To do so, visit <a href="https://www.spotify.com/ca-en/account/privacy">Spotify's Privacy Settings</a> and scroll to the bottom section, "Download your data." Request <strong>Extended Streaming History</strong> (Account data and Technical log information are not necessary).</p>
+                <p>To do so, visit <a href='https://www.spotify.com/ca-en/account/privacy' target='_blank'>Spotify's Privacy Settings</a> and scroll to the bottom section, "Download your data." Request <strong>Extended Streaming History</strong> (Account data and Technical log information are not necessary).</p>
                 <img src={requestExtendedImage} alt='Screenshot showing the Spotify privacy settings page with "Extended streaming history" selected' />
                 <img src={requestDataButtonImage} alt='Screenshot showing the Spotify privacy settings page with "Extended streaming history" selected' />
             </div>
