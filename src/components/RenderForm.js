@@ -131,6 +131,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
             </div>
             <div className='column'>
                 <input type='submit' className='accent' value='Generate Graph' disabled={!changed} />
+                <p>Please note that I am actively working on developing this website. I am aware it often experiences errors and there are a bunch of features I still need to implement or debug. Some aspects of the visualization will be significantly improved (in particular I will be resolving the present issue of labels rendering in the wrong place, and making the color schemes look nicer). Thank you for your patience, and expect this website to become much more polished in the next couple weeks! Please email me at <a href='mailto:me@erikboesen.com'>me@erikboesen.com</a> with feedback or bug reports.</p>
             </div>
         </form>
     );
