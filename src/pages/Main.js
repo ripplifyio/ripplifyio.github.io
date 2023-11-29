@@ -17,6 +17,7 @@ function Main() {
     const historyFiles = useSelector(selectHistoryFiles);
     const historyFilesStatus = useSelector(selectHistoryFilesStatus);
 
+    const [loading, setLoading] = useState(false);
     const [token, setToken] = useState(null);
 
     const load = () => {
@@ -33,9 +34,11 @@ function Main() {
         setToken(token);
 
         if (token) {
+            setLoading(true);
             load();
         } else {
             if (hash) {
+                setLoading(true);
                 const spotifyToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
                 console.log('Spotify token:', spotifyToken);
                 authorize(spotifyToken)
