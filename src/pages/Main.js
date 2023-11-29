@@ -25,6 +25,7 @@ function Main() {
         if (historyFilesStatus === 'idle') {
             dispatch(fetchHistoryFiles());
         }
+        setLoading(false);
     };
 
     useEffect(() => {
@@ -67,14 +68,16 @@ function Main() {
                 <Logo />
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
-            {!token
-                ? <Splash />
-                : ((historyFiles === null)
-                    ? (<Loader caption='Loading' />)
-                    : (historyFiles.length > 0
-                        ? <Viewer example={!Boolean(token)} />
-                        : <Guide />))
-            }
+            {loading
+                ? (<Loader caption='Loading' />)
+                : (!token
+                    ? <Splash />
+                    : ((historyFiles === null)
+                        ? (<Loader caption='Loading' />)
+                        : (historyFiles.length > 0
+                            ? <Viewer example={!Boolean(token)} />
+                            : <Guide />)))
+                }
         </>
     );
 }
