@@ -68,6 +68,7 @@ function Main() {
                 <Logo />
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
+            <Guide />
             {loading
                 ? (<Loader caption='Loading' />)
                 : (!token
