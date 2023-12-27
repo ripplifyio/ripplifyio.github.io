@@ -26,7 +26,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         });
     };
 
-    let checkRenderLoop = null;
+    let checkRenderInterval = null;
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -34,13 +34,12 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         setGraphImage(null);
         setLoading(true);
         render(state).then((startingGraph) => {
-            checkRenderLoop = setInterval(() => {
+            checkRenderInterval = setInterval(() => {
                 getGraph(startingGraph.id).then((graph) => {
                     if (graph.url) {
                         setGraphImage(graph.url);
                         setLoading(false);
-                        // TODO!!!! make sure this actually stps the loop or whther there's some function we need to call
-                        checkRenderLoop = null;
+                        clearInterval(checkRenderInterval);
                     }
                 });
             }, 5000);
