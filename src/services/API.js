@@ -96,3 +96,7 @@ export const uploadHistoryFile = (file) => {
 export const render = (options) => {
     return post('render', options);
 };
+
+export const getGraph = (graphId) => {
+    return get('graph/' + graphId);
+};
