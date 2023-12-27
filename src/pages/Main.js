@@ -71,8 +71,9 @@ function Main() {
             <Guide />
             {loading
                 ? (<Loader caption='Loading' />)
-                : (!token
-                    ? <Splash />
+                // TODO: re-enable this once we get login approval
+                //: (!token
+                //    ? <Splash />
                     : ((historyFiles === null)
                         ? (<Loader caption='Loading' />)
                         : (historyFiles.length > 0

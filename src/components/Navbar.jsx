@@ -3,9 +3,10 @@ import React from 'react';
 const Navbar = ({ isLoggedIn, logout }) => {
     return (
         <nav>
-            {isLoggedIn && (
+            // TODO: re-enable once Spotify login is approved
+            {/*isLoggedIn && (
                 <button onClick={logout}>Logout</button>
-            )}
+            )*/}
         </nav>
     );
 };
