@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Slider from './Slider';
 
-import { render }  from '../services/API';
+import { render, getGraph } from '../services/API';
 
 const RenderForm = ({ setGraphImage, setLoading }) => {
     const [state, setState] = useState({
@@ -26,13 +26,24 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         });
     };
 
+    let checkRenderLoop = null;
+
     const handleSubmit = (event) => {
         event.preventDefault();
         setChanged(false);
         setGraphImage(null);
         setLoading(true);
-        render(state).then((graph) => {
-            setGraphImage(graph.url);
+        render(state).then((startingGraph) => {
+            checkRenderLoop = setInterval(() => {
+                getGraph(startingGraph.id).then((graph) => {
+                    if (graph.url) {
+                        setGraphImage(graph.url);
+                        setLoading(false);
+                        // TODO!!!! make sure this actually stps the loop or whther there's some function we need to call
+                        checkRenderLoop = null;
+                    }
+                });
+            }, 5000);
         }).catch((error) => {
             alert(error);
         });
