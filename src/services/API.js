@@ -81,6 +81,10 @@ export const getUser = () => {
 
 };
 
+export const getHistoryFile = (id) => {
+    return get('history_files/' + id);
+};
+
 export const getHistoryFiles = () => {
     return get('history_files');
 };

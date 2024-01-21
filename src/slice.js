@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getHistoryFiles } from './services/API';
+import { getHistoryFiles, getHistoryFile } from './services/API';
 
 const initialState = {
     historyFiles: {
@@ -12,6 +12,11 @@ const initialState = {
 export const fetchHistoryFiles = createAsyncThunk('fetchHistoryFiles', async () => {
     console.log('Doin it');
     return await getHistoryFiles();
+});
+
+export const fetchHistoryFile = createAsyncThunk('fetchHistoryFile', async (id) => {
+    console.log('Fetching individual history file with ID=' + id);
+    return await getHistoryFile(id);
 });
 
 const slice = createSlice({
@@ -28,6 +33,18 @@ const slice = createSlice({
                 state.historyFiles.value = action.payload;
             })
             .addCase(fetchHistoryFiles.rejected, (state, action) => {
+                state.historyFiles.status = 'failed';
+                state.historyFiles.error = action.error.message;
+            })
+
+            .addCase(fetchHistoryFile.pending, (state, action) => {
+                state.historyFiles.status = 'loading';
+            })
+            .addCase(fetchHistoryFile.fulfilled, (state, action) => {
+                state.historyFiles.status = 'succeeded';
+                state.historyFiles.value = [action.payload];
+            })
+            .addCase(fetchHistoryFile.rejected, (state, action) => {
                 state.historyFiles.status = 'failed';
                 state.historyFiles.error = action.error.message;
             });

@@ -15,6 +15,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         resolution: 'month',
         monthStart: null,
         monthEnd: null,
+        historyFileId: localStorage.historyFileId,
     });
     const [changed, setChanged] = useState(true);
 
@@ -44,7 +45,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                 });
             }, 5000);
         }).catch((error) => {
-            alert(error);
+            console.log('Received error on submission:', error);
+            alert(error.message);
         });
     };
 

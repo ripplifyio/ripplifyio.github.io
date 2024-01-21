@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectHistoryFiles, selectHistoryFilesStatus, fetchHistoryFiles } from '../slice';
+import { selectHistoryFiles, selectHistoryFilesStatus, fetchHistoryFiles, fetchHistoryFile } from '../slice';
 
 import { authorize } from '../services/API';
 
@@ -29,15 +29,23 @@ function Main() {
     };
 
     useEffect(() => {
-
-        const hash = window.location.hash;
         let token = localStorage.getItem('token');
         setToken(token);
+
+        let localHistoryFileId = localStorage.getItem('historyFileId');
+        // TODO: can remove this logic later once we are able to make users log in
+        if (localHistoryFileId) {
+            //setHistoryFileId(localHistoryFileId);
+            if (historyFilesStatus === 'idle') {
+                dispatch(fetchHistoryFile(localHistoryFileId));
+            }
+        }
 
         if (token) {
             setLoading(true);
             load();
         } else {
+            const hash = window.location.hash;
             if (hash) {
                 setLoading(true);
                 const spotifyToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
@@ -68,7 +76,9 @@ function Main() {
                 <Logo />
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
-            <Guide />
+            {(historyFiles === null || historyFiles.length === 0)
+                ? <Guide />
+                : null}
             {loading
                 ? (<Loader caption='Loading' />)
                 // TODO: re-enable this once we get login approval
@@ -78,8 +88,8 @@ function Main() {
                         ? (<Loader caption='Loading' />)
                         : (historyFiles.length > 0
                             ? <Viewer example={!Boolean(token)} />
-                            : <Guide />)))
-                }
+                            : <Guide />))
+            }
         </>
     );
 }
