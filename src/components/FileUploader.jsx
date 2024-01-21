@@ -8,7 +8,10 @@ const FileUploader = () => {
     const upload = (e) => {
         console.log(e.target.files[0]);
         setUploading(true);
-        uploadHistoryFile(e.target.files[0]);
+        uploadHistoryFile(e.target.files[0]).then((historyFile) => {
+            localStorage.setItem('historyFileId', historyFile.id);
+            window.location.reload();
+        });
     };
 
     return (
