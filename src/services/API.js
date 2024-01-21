@@ -102,5 +102,5 @@ export const render = (options) => {
 };
 
 export const getGraph = (graphId) => {
-    return get('graph/' + graphId);
+    return get('graphs/' + graphId);
 };
