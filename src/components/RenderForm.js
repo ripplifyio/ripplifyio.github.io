@@ -19,11 +19,24 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
     });
     const [changed, setChanged] = useState(true);
 
+    const getValue = (target) => {
+        switch (target.type) {
+            case 'number':
+                return Number(target.value);
+                break;
+            case 'checkbox':
+                return target.checked;
+                break;
+            default:
+                return target.value;
+        }
+    };
+
     const handleChange = (event) => {
         setChanged(true);
         setState({
             ...state,
-            [event.target.name]: event.target.value,
+            [event.target.name]: getValue(event.target),
         });
     };
 
