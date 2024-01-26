@@ -40,6 +40,20 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         });
     };
 
+    const checkUpdate = (graphId, delay) => {
+        setTimeout(() => {
+            getGraph(graphId).then((graph) => {
+                if (graph.url) {
+                    setGraphImage(graph.url);
+                    setLoading(false);
+                    clearInterval(checkRenderInterval);
+                } else {
+                    checkUpdate(graphId, delay * 2);
+                }
+            })
+        }, delay);
+   };
+
     let checkRenderInterval = null;
 
     const handleSubmit = (event) => {
@@ -48,15 +62,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         setGraphImage(null);
         setLoading(true);
         render(state).then((startingGraph) => {
-            checkRenderInterval = setInterval(() => {
-                getGraph(startingGraph.id).then((graph) => {
-                    if (graph.url) {
-                        setGraphImage(graph.url);
-                        setLoading(false);
-                        clearInterval(checkRenderInterval);
-                    }
-                });
-            }, 5000);
+            checkUpdate(startingGraph.id, 5000);
         }).catch((error) => {
             console.log('Received error on submission:', error);
             alert(error.message);
