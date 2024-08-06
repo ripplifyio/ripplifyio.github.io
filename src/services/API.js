@@ -90,11 +90,30 @@ export const getHistoryFiles = () => {
 };
 
 export const uploadHistoryFile = (file) => {
-    //let data = new FormData()
-    //data.append('file', file);
-    return post('history_files', file, {
+    return post('history_files', null, {
         'Content-Type': 'application/zip',
-    })
+    }).then(response => {
+        const { url, fileId } = response.data;
+        let formData = new FormData();
+        formData.append('file', file);
+
+        return axios.put(url, formData, {
+            headers: {
+                'Content-Type': 'application/zip'
+            }
+        }).then(() => {
+            return post(`history_files/${fileId}/process`)
+                }).then(() => {
+                    return { success: true, fileId: fileId };
+                }).catch(error => {
+                    console.error('Error starting processing:', error);
+                    return { success: false, error: error };
+                });
+        }).catch(error => {
+            console.error('Error uploading to S3:', error);
+            return { success: false, error: error };
+        });
+    });
 };
 
 export const render = (options) => {
