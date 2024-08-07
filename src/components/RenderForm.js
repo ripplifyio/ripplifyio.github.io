@@ -62,7 +62,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         setGraphImage(null);
         setLoading(true);
         render(state).then((startingGraph) => {
-            checkUpdate(startingGraph.id, 5000);
+            console.log('This is startingGraph:', startingGraph);
+            checkUpdate(startingGraph.fileId, 5000);
         }).catch((error) => {
             console.log('Received error on submission:', error);
             alert(error.message);

@@ -90,22 +90,18 @@ export const getHistoryFiles = () => {
 };
 
 export const uploadHistoryFile = (file) => {
-    return post('history_files', null, {
-        'Content-Type': 'application/zip',
-    }).then(response => {
-        const { url, fileId } = response.data;
+    return post('history_files', null).then((response) => {
+        console.log('Response from initial POST to history_files endpoint:', response);
+        const { url, fileId } = response;
         let formData = new FormData();
         formData.append('file', file);
-
-        return axios.put(url, formData, {
-            headers: {
-                'Content-Type': 'application/zip'
-            }
-        }).then(() => {
+        return axios.put(url, formData).then((response) => {
+            console.log('Response from AWS upload:', response);
             return post(`history_files/${fileId}/process`)
-                }).then(() => {
+                }).then((response) => {
+                    console.log('response from starting processing:', response);
                     return { success: true, fileId: fileId };
-                }).catch(error => {
+                }).catch((error) => {
                     console.error('Error starting processing:', error);
                     return { success: false, error: error };
                 });
@@ -113,7 +109,6 @@ export const uploadHistoryFile = (file) => {
             console.error('Error uploading to S3:', error);
             return { success: false, error: error };
         });
-    });
 };
 
 export const render = (options) => {
