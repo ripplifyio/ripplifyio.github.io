@@ -93,9 +93,15 @@ export const uploadHistoryFile = (file) => {
     return post('history_files', null).then((response) => {
         console.log('Response from initial POST to history_files endpoint:', response);
         const { url, fileId } = response;
-        let formData = new FormData();
-        formData.append('file', file);
-        return axios.put(url, formData).then((response) => {
+        console.log('Trying to upload,', file);
+        return axios({
+            method: 'put',
+            url,
+            data: file,
+            headers: {
+                'Content-Type': 'application/zip',
+            },
+        }).then((response) => {
             console.log('Response from AWS upload:', response);
             return post(`history_files/${fileId}/process`)
                 }).then((response) => {

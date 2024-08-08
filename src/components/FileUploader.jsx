@@ -6,7 +6,6 @@ const FileUploader = () => {
     const [uploading, setUploading] = useState(false);
 
     const upload = (e) => {
-        console.log(e.target.files[0]);
         setUploading(true);
         uploadHistoryFile(e.target.files[0]).then((response) => {
             console.log('This iis the response', response);
