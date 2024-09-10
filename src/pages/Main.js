@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectHistoryFiles, selectHistoryFilesStatus, fetchHistoryFiles, fetchHistoryFile } from '../slice';
+import { selectHistoryFiles, setEmptyHistoryFile, selectHistoryFilesStatus, fetchHistoryFiles, fetchHistoryFile } from '../slice';
 
 import { authorize } from '../services/API';
 
@@ -39,6 +39,8 @@ function Main() {
             if (historyFilesStatus === 'idle') {
                 dispatch(fetchHistoryFile(localHistoryFileId));
             }
+        } else {
+            dispatch(setEmptyHistoryFile());
         }
 
         if (token) {
@@ -63,7 +65,7 @@ function Main() {
                     });
             }
         }
-    });
+    }, []);
 
     const logout = () => {
         setToken(null);
