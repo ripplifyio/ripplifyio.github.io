@@ -76,9 +76,6 @@ function Main() {
                 <Logo />
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
-            {(historyFiles === null || historyFiles.length === 0)
-                ? <Guide />
-                : null}
             {loading
                 ? (<Loader caption='Loading' />)
                 // TODO: re-enable this once we get login approval
