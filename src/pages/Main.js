@@ -19,6 +19,7 @@ function Main() {
 
     const [loading, setLoading] = useState(false);
     const [token, setToken] = useState(null);
+    const [splashDismissed, setSplashDismissed] = useState(false);
 
     const load = () => {
         console.log(historyFilesStatus);
@@ -80,14 +81,11 @@ function Main() {
             </header>
             {loading
                 ? (<Loader caption='Loading' />)
-                // TODO: re-enable this once we get login approval
-                //: (!token
-                //    ? <Splash />
                     : ((historyFiles === null)
                         ? (<Loader caption='Loading' />)
                         : (historyFiles.length > 0
                             ? <Viewer example={!Boolean(token)} />
-                            : <Guide />))
+                            : (splashDismissed ? <Guide /> : <Splash action={() => setSplashDismissed(true)}/>)))
             }
         </>
     );
