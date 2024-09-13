@@ -41,7 +41,6 @@ const Guide = () => {
             <div className='step'>
                 <h3>6</h3>
                 <p>When you click Download (and log in if necessary), a file will be downloaded called <tt>my_spotify_data.zip</tt>. Upload it below:</p>
-                <p>NOTE: UPLOADING IS CURRENTLY BROKEN AS WE AWAIT APPROVAL FROM SPOTIFY! PLEASE HOLD ON TO YOUR FILE AND CHECK BACK SOON AND IT SHOULD BE FIXED!!</p>
                 <FileUploader />
             </div>
         </article>
