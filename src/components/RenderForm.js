@@ -15,6 +15,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         resolution: 'month',
         monthStart: null,
         monthEnd: null,
+        aspectRatio: '2:1',
         historyFileId: localStorage.historyFileId,
     });
     const [changed, setChanged] = useState(true);
@@ -159,6 +160,20 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                         Custom end month (YYYY-MM)
                         <input type='text' name='monthEnd' id='monthEnd' onChange={handleChange} />
                     </label>
+                </div>
+                <div className='option'>
+                    <label htmlFor='aspectRatio'>Aspect ratio (Height:Width)</label>
+                    <select name='aspectRatio' onChange={handleChange}>
+                        <option value='2:1'>2:1</option>
+                        <option value='16:9'>16:9</option>
+                        <option value='3:2'>3:2</option>
+                        <option value='5:4'>5:4</option>
+                        <option value='1:1'>1:1 (Square)</option>
+                        <option value='4:5'>4:5</option>
+                        <option value='2:3'>2:3</option>
+                        <option value='9:16'>9:16</option>
+                        <option value='1:2'>1:2</option>
+                    </select>
                 </div>
             </div>
             <div className='column'>
