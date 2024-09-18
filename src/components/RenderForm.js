@@ -67,7 +67,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
             checkUpdate(startingGraph.id, 5000);
         }).catch((error) => {
             console.log('Received error on submission:', error);
-            alert(error.message);
+            alert('Sorry, there was an internal error when rendering your graph. Please try again.');
+            setLoading(false);
         });
     };
 
