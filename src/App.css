@@ -12,7 +12,7 @@
     padding: 0;
 }
 body {
-    background: #111;
+    background: #1a5a2e;
     color: white;
     font-family: 'Lexend Deca', sans-serif;
 }
@@ -34,10 +34,12 @@ header {
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
+    /*animation: hueshift 10s infinite linear;*/
 }
+
 h1 {
     font-size: 40px;
-    color: #1DB954;
+    color: white;
     margin: 0;
     display: inline-block;
     vertical-align: middle;
@@ -186,6 +188,9 @@ button, a.button, input[type='submit'] {
 .accent, input[type='submit'].accent {
     background: #56CBF9;
 }
+input[type='range'] {
+    filter: brightness(131%) hue-rotate(295deg);
+}
 select {
     font: inherit;
     display: block;
@@ -227,7 +232,7 @@ input[type='submit'][disabled] {
 .placeholder {
     background: #222;
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;

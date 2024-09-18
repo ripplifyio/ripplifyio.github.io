@@ -1,7 +1,7 @@
 import React from 'react';
 //import React, { useEffect, useState } from 'react';
 //import { TimelineLite, Power0 } from 'gsap/all';
-import logoImage from '../images/logo.png';
+import logoImage from '../images/logo_color.png';
 
 const Logo = () => {
     return (
