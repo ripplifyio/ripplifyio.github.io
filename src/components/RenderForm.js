@@ -9,7 +9,9 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         mode: 'artists',
         graphType: 'stretch',
         colorScheme: 'rainbow',
-        silouhette: true,
+        backgroundColor: '111111',
+        scaleColor: '333333',
+        silouhette: false,
         artistCount: 100,
         hiddenArtists: '',
         resolution: 'month',
@@ -97,6 +99,19 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                         <option value='rainbow'>Rainbow</option>
                         <option value='classic'>Classic</option>
                     </select>
+                </div>
+
+                <div className='option'>
+                    <label>
+                        Background color hex
+                        <input type='text' name='backgroundColor' defaultValue={state.backgroundColor} onChange={handleChange} />
+                    </label>
+                </div>
+                <div className='option'>
+                    <label>
+                        Scale color hex
+                        <input type='text' name='scaleColor' defaultValue={state.scaleColor} onChange={handleChange} />
+                    </label>
                 </div>
                 {/*
                 <div className='option'>
