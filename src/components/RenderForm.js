@@ -12,6 +12,10 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         backgroundColor: '111111',
         scaleColor: '333333',
         saturation: 70,
+        hueStart: 0,
+        hueEnd: 360,
+        lightnessMin: 10,
+        lightnessMax: 40,
         silouhette: false,
         artistCount: 100,
         hiddenArtists: '',
@@ -27,10 +31,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         switch (target.type) {
             case 'number':
                 return Number(target.value);
-                break;
             case 'checkbox':
                 return target.checked;
-                break;
             default:
                 return target.value;
         }
@@ -102,12 +104,38 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                     </select>
                 </div>
                 {state.colorScheme === 'rainbow' && (
-                    <div className='option'>
-                        <label>
-                            Saturation
-                            <Slider min={0} max={100} name='saturation' id='saturation' defaultValue={70} onChange={handleChange} />
-                        </label>
-                    </div>
+                    <>
+                        <div className='option'>
+                            <label>
+                                Saturation
+                                <Slider min={0} max={100} name='saturation' defaultValue={state.saturation} onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className='option'>
+                            <label>
+                                Starting hue
+                                <input type='number' name='hueStart' defaultValue={state.hueStart} onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className='option'>
+                            <label>
+                                Ending hue
+                                <input type='number' name='hueEnd' defaultValue={state.hueEnd} onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className='option'>
+                            <label>
+                                Minimum lightness
+                                <input type='number' name='lightnessMin' defaultValue={state.lightnessMin} onChange={handleChange} />
+                            </label>
+                        </div>
+                        <div className='option'>
+                            <label>
+                                Maximum lightness
+                                <input type='number' name='lightnessMax' defaultValue={state.lightnessMax} onChange={handleChange} />
+                            </label>
+                        </div>
+                    </>
                 )}
                 <div className='option'>
                     <label>
@@ -168,13 +196,13 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                 <div className='option'>
                     <label>
                         Number of artists to include?
-                        <Slider min={20} max={500} name='artistCount' id='artistCount' defaultValue={100} onChange={handleChange} />
+                        <Slider min={20} max={500} name='artistCount' defaultValue={100} onChange={handleChange} />
                     </label>
                 </div>
                 <div className='option'>
                     <label>
                         Artists to hide (comma separated)
-                        <input type='text' name='hiddenArtists' id='hiddenArtists' onChange={handleChange} />
+                        <input type='text' name='hiddenArtists' onChange={handleChange} />
                     </label>
                 </div>
             </div>
