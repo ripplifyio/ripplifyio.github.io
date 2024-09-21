@@ -11,6 +11,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         colorScheme: 'rainbow',
         backgroundColor: '111111',
         scaleColor: '333333',
+        saturation: 70,
         silouhette: false,
         artistCount: 100,
         hiddenArtists: '',
@@ -100,7 +101,14 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                         <option value='classic'>Classic</option>
                     </select>
                 </div>
-
+                {state.colorScheme === 'rainbow' && (
+                    <div className='option'>
+                        <label>
+                            Saturation
+                            <Slider min={0} max={100} name='saturation' id='saturation' defaultValue={70} onChange={handleChange} />
+                        </label>
+                    </div>
+                )}
                 <div className='option'>
                     <label>
                         Background color hex
