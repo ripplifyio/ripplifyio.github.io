@@ -225,7 +225,6 @@ input[type='submit'][disabled] {
 
 .graph {
     width: 100vw;
-    aspect-ratio: 2;
     background-size: contain;
     background-repeat: no-repeat;
 }
