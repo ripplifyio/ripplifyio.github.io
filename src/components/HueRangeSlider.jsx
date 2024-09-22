@@ -23,9 +23,9 @@ const HueRangeSlider = ({ value, onChange }) => {
     const newValue = Math.max(0, Math.min(Math.round(position * 360), 360));
 
     if (isDragging === 'start') {
-      onChange({ ...value, start: Math.min(newValue, value.max) });
+      onChange({ ...value, min: Math.min(newValue, value.max) });
     } else {
-      onChange({ ...value, end: Math.max(newValue, value.min) });
+      onChange({ ...value, max: Math.max(newValue, value.min) });
     }
   };
 

@@ -183,6 +183,7 @@ article {
     font-size: 18px;
 }
 .option-group-content {
+    border-top: 2px solid #1DB954;
     padding: 10px;
 }
 input {
