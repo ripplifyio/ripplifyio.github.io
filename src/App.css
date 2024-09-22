@@ -232,6 +232,27 @@ input[type='text'], input[type='number'] {
 .slider span {
     vertical-align: middle;
 }
+.hue-range-slider {
+    position: relative;
+    height: 5px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.hue-range-slider .handle {
+    position: absolute;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transform: translateX(-50%);
+    cursor: grab;
+}
+.hue-range-slider .handle:active {
+    cursor: grabbing;
+}
 input[type='submit'] {
     display: block;
 }

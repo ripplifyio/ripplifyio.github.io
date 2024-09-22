@@ -3,6 +3,7 @@ import { faGear, faPalette, faMusic, faClock } from '@fortawesome/free-solid-svg
 
 import OptionGroup from './OptionGroup';
 import Slider from './Slider';
+import HueRangeSlider from './HueRangeSlider';
 
 import { render, getGraph } from '../services/API';
 
@@ -14,8 +15,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         backgroundColor: '111111',
         scaleColor: '333333',
         saturation: 70,
-        hueStart: 20,
-        hueEnd: 320,
+        hueRange: { start: 20, end: 320 },
         lightnessMin: 10,
         lightnessMax: 40,
         silouhette: false,
@@ -45,6 +45,14 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         setState({
             ...state,
             [event.target.name]: getValue(event.target),
+        });
+    };
+
+    const handleHueRangeChange = (newHueRange) => {
+        setChanged(true);
+        setState({
+            ...state,
+            hueRange: newHueRange,
         });
     };
 
@@ -134,14 +142,11 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                             </div>
                             <div className='option'>
                                 <label>
-                                    Starting hue
-                                    <input type='number' name='hueStart' defaultValue={state.hueStart} onChange={handleChange} />
-                                </label>
-                            </div>
-                            <div className='option'>
-                                <label>
-                                    Ending hue
-                                    <input type='number' name='hueEnd' defaultValue={state.hueEnd} onChange={handleChange} />
+                                    Hue Range
+                                    <HueRangeSlider
+                                        value={state.hueRange}
+                                        onChange={handleHueRangeChange}
+                                    />
                                 </label>
                             </div>
                             <div className='option'>
