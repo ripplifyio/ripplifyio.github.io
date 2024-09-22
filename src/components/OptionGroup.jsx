@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-const OptionGroup = ({ title, children }) => {
+const OptionGroup = ({ title, icon, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -12,6 +12,7 @@ const OptionGroup = ({ title, children }) => {
   return (
     <div className='option-group'>
       <div className='option-group-header' onClick={toggleExpand}>
+        <FontAwesomeIcon icon={icon} />
         <h3>{title}</h3>
         <FontAwesomeIcon icon={isExpanded ? faChevronUp : faChevronDown} />
       </div>

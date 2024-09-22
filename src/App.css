@@ -148,7 +148,7 @@ article {
     filter: contrast(1.18);
 }
 .option-group {
-    border: 1px solid #0c6b2a;
+    border: 1px solid #1DB954;
     border-radius: 4px;
     margin-bottom: 10px;
 }
@@ -157,7 +157,7 @@ article {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #0c6b2a;
+    background-color: #1DB954;
     cursor: pointer;
 }
 .option-group-header h3 {
