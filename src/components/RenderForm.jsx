@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import OptionGroup from './OptionGroup';
 import Slider from './Slider';
 
 import { render, getGraph } from '../services/API';
@@ -96,59 +97,61 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                         </label>
                     </div>
                 )}
-                <div className='option'>
-                    <label htmlFor='colorScheme'>Color Scheme</label>
-                    <select name='colorScheme' onChange={handleChange}>
-                        <option value='rainbow'>Rainbow</option>
-                        <option value='classic'>Classic</option>
-                    </select>
-                </div>
-                {state.colorScheme === 'rainbow' && (
-                    <>
-                        <div className='option'>
-                            <label>
-                                Saturation
-                                <Slider min={0} max={100} name='saturation' defaultValue={state.saturation} onChange={handleChange} />
-                            </label>
-                        </div>
-                        <div className='option'>
-                            <label>
-                                Starting hue
-                                <input type='number' name='hueStart' defaultValue={state.hueStart} onChange={handleChange} />
-                            </label>
-                        </div>
-                        <div className='option'>
-                            <label>
-                                Ending hue
-                                <input type='number' name='hueEnd' defaultValue={state.hueEnd} onChange={handleChange} />
-                            </label>
-                        </div>
-                        <div className='option'>
-                            <label>
-                                Minimum lightness
-                                <input type='number' name='lightnessMin' defaultValue={state.lightnessMin} onChange={handleChange} />
-                            </label>
-                        </div>
-                        <div className='option'>
-                            <label>
-                                Maximum lightness
-                                <input type='number' name='lightnessMax' defaultValue={state.lightnessMax} onChange={handleChange} />
-                            </label>
-                        </div>
-                    </>
-                )}
-                <div className='option'>
-                    <label>
-                        Background color hex
-                        <input type='text' name='backgroundColor' defaultValue={state.backgroundColor} onChange={handleChange} />
-                    </label>
-                </div>
-                <div className='option'>
-                    <label>
-                        Scale color hex
-                        <input type='text' name='scaleColor' defaultValue={state.scaleColor} onChange={handleChange} />
-                    </label>
-                </div>
+                <OptionGroup title="Colors">
+                    <div className='option'>
+                        <label htmlFor='colorScheme'>Color Scheme</label>
+                        <select name='colorScheme' onChange={handleChange}>
+                            <option value='rainbow'>Rainbow</option>
+                            <option value='classic'>Classic</option>
+                        </select>
+                    </div>
+                    {state.colorScheme === 'rainbow' && (
+                        <>
+                            <div className='option'>
+                                <label>
+                                    Saturation
+                                    <Slider min={0} max={100} name='saturation' defaultValue={state.saturation} onChange={handleChange} />
+                                </label>
+                            </div>
+                            <div className='option'>
+                                <label>
+                                    Starting hue
+                                    <input type='number' name='hueStart' defaultValue={state.hueStart} onChange={handleChange} />
+                                </label>
+                            </div>
+                            <div className='option'>
+                                <label>
+                                    Ending hue
+                                    <input type='number' name='hueEnd' defaultValue={state.hueEnd} onChange={handleChange} />
+                                </label>
+                            </div>
+                            <div className='option'>
+                                <label>
+                                    Minimum lightness
+                                    <input type='number' name='lightnessMin' defaultValue={state.lightnessMin} onChange={handleChange} />
+                                </label>
+                            </div>
+                            <div className='option'>
+                                <label>
+                                    Maximum lightness
+                                    <input type='number' name='lightnessMax' defaultValue={state.lightnessMax} onChange={handleChange} />
+                                </label>
+                            </div>
+                        </>
+                    )}
+                    <div className='option'>
+                        <label>
+                            Background color hex
+                            <input type='text' name='backgroundColor' defaultValue={state.backgroundColor} onChange={handleChange} />
+                        </label>
+                    </div>
+                    <div className='option'>
+                        <label>
+                            Scale color hex
+                            <input type='text' name='scaleColor' defaultValue={state.scaleColor} onChange={handleChange} />
+                        </label>
+                    </div>
+                </OptionGroup>
                 {/*
                 <div className='option'>
                     <label htmlFor='ordering'>Ordering</label>
