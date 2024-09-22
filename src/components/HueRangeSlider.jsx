@@ -20,7 +20,7 @@ const HueRangeSlider = ({ value, onChange }) => {
 
     const rect = sliderRef.current.getBoundingClientRect();
     const position = (e.clientX - rect.left) / rect.width;
-    const newValue = Math.round(position * 360);
+    const newValue = Math.max(0, Math.min(Math.round(position * 360), 360));
 
     if (isDragging === 'start') {
       onChange({ ...value, start: Math.min(newValue, value.end) });
@@ -38,13 +38,13 @@ const HueRangeSlider = ({ value, onChange }) => {
 
   const gradientStyle = {
     background: `linear-gradient(to right,
-      hsl(0, 100%, 50%),
-      hsl(60, 100%, 50%),
-      hsl(120, 100%, 50%),
-      hsl(180, 100%, 50%),
-      hsl(240, 100%, 50%),
-      hsl(300, 100%, 50%),
-      hsl(360, 100%, 50%))`
+      hsl(0, 75%, 50%),
+      hsl(60, 75%, 50%),
+      hsl(120, 75%, 50%),
+      hsl(180, 75%, 50%),
+      hsl(240, 75%, 50%),
+      hsl(300, 75%, 50%),
+      hsl(360, 75%, 50%))`
   };
 
   return (

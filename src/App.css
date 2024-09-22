@@ -234,19 +234,20 @@ input[type='text'], input[type='number'] {
 }
 .hue-range-slider {
     position: relative;
-    height: 5px;
+    height: 6px;
     width: 100%;
     border-radius: 10px;
+    margin: 10px 0 15px;
     cursor: pointer;
 }
 .hue-range-slider .handle {
     position: absolute;
     top: -5px;
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 50%;
-    border: 2px solid #333;
     transform: translateX(-50%);
     cursor: grab;
 }
