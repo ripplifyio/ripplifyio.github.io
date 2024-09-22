@@ -38,13 +38,13 @@ const HueRangeSlider = ({ value, onChange }) => {
 
   const gradientStyle = {
     background: `linear-gradient(to right,
-      hsl(0, 75%, 50%),
-      hsl(60, 75%, 50%),
-      hsl(120, 75%, 50%),
-      hsl(180, 75%, 50%),
-      hsl(240, 75%, 50%),
-      hsl(300, 75%, 50%),
-      hsl(360, 75%, 50%))`
+      hsl(0, 75%, 60%),
+      hsl(60, 75%, 60%),
+      hsl(120, 75%, 60%),
+      hsl(180, 75%, 60%),
+      hsl(240, 75%, 60%),
+      hsl(300, 75%, 60%),
+      hsl(360, 75%, 60%))`
   };
 
   return (
