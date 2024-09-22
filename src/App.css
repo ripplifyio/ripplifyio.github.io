@@ -147,6 +147,25 @@ article {
     opacity: 0.7;
     filter: contrast(1.18);
 }
+.option-group {
+    border: 1px solid #0c6b2a;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.option-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #0c6b2a;
+    cursor: pointer;
+}
+.option-group-header h3 {
+    margin: 0;
+}
+.option-group-content {
+    padding: 10px;
+}
 .options {
     padding: 20px;
 }
