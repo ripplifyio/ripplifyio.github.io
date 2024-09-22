@@ -148,8 +148,8 @@ article {
     filter: contrast(1.18);
 }
 .option-group {
-    border: 1px solid #1DB954;
-    border-radius: 4px;
+    border: 2px solid #1DB954;
+    border-radius: 6px;
     margin-bottom: 10px;
 }
 .option-group-header {
@@ -161,7 +161,7 @@ article {
     cursor: pointer;
 }
 .option-group-header h3 {
-    margin: 0;
+    margin: 0 7px;
 }
 .option-group-content {
     padding: 10px;
@@ -215,14 +215,14 @@ select {
     display: block;
     border: none;
     background: #1DB954;
-    color: black;
+    color: white;
     border-radius: 5px;
     padding: 10px 12px;
     margin-top: 3px;
     border-radius: 50px;
     cursor: pointer;
 }
-input[type='text'] {
+input[type='text'], input[type='number'] {
     display: block;
     font: inherit;
     padding: 8px 0;
@@ -234,7 +234,6 @@ input[type='text'] {
 }
 input[type='submit'] {
     display: block;
-    margin-top: 10px;
 }
 input[type='submit'][disabled] {
     opacity: 0.5;

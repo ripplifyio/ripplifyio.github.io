@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { faPalette, faMusic, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faPalette, faMusic, faClock } from '@fortawesome/free-solid-svg-icons';
 
 import OptionGroup from './OptionGroup';
 import Slider from './Slider';
@@ -14,8 +14,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         backgroundColor: '111111',
         scaleColor: '333333',
         saturation: 70,
-        hueStart: 0,
-        hueEnd: 360,
+        hueStart: 20,
+        hueEnd: 320,
         lightnessMin: 10,
         lightnessMax: 40,
         silouhette: false,
@@ -82,36 +82,38 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
     return (
         <form className='options' onSubmit={handleSubmit}>
             <div className='column'>
-                <div className='option'>
-                    <label htmlFor='graphType'>Graph type</label>
-                    <select name='graphType' onChange={handleChange}>
-                        <option value='river'>River</option>
-                        <option value='stretch'>Stretch</option>
-                        <option value='hills'>Hills</option>
-                    </select>
-                </div>
-                {state.graphType === 'river' && (
+                <OptionGroup title='General Options' icon={faGear}>
                     <div className='option'>
-                        <label>
-                            <input type='checkbox' name='sillouhette' value={true} onChange={handleChange} />
-                            Force vertical symmetry?
-                        </label>
+                        <label htmlFor='graphType'>Graph type</label>
+                        <select name='graphType' onChange={handleChange}>
+                            <option value='river'>River</option>
+                            <option value='stretch'>Stretch</option>
+                            <option value='hills'>Hills</option>
+                        </select>
                     </div>
-                )}
-                <div className='option'>
-                    <label htmlFor='aspectRatio'>Aspect ratio (Width:Height)</label>
-                    <select name='aspectRatio' onChange={handleChange}>
-                        <option value='2:1'>2:1</option>
-                        <option value='16:9'>16:9</option>
-                        <option value='3:2'>3:2</option>
-                        <option value='5:4'>5:4</option>
-                        <option value='1:1'>1:1 (Square)</option>
-                        <option value='4:5'>4:5</option>
-                        <option value='2:3'>2:3</option>
-                        <option value='9:16'>9:16</option>
-                        <option value='1:2'>1:2</option>
-                    </select>
-                </div>
+                    {state.graphType === 'river' && (
+                        <div className='option'>
+                            <label>
+                                <input type='checkbox' name='sillouhette' value={true} onChange={handleChange} />
+                                Force vertical symmetry?
+                            </label>
+                        </div>
+                    )}
+                    <div className='option'>
+                        <label htmlFor='aspectRatio'>Aspect ratio (Width:Height)</label>
+                        <select name='aspectRatio' onChange={handleChange}>
+                            <option value='2:1'>2:1</option>
+                            <option value='16:9'>16:9</option>
+                            <option value='3:2'>3:2</option>
+                            <option value='5:4'>5:4</option>
+                            <option value='1:1'>1:1 (Square)</option>
+                            <option value='4:5'>4:5</option>
+                            <option value='2:3'>2:3</option>
+                            <option value='9:16'>9:16</option>
+                            <option value='1:2'>1:2</option>
+                        </select>
+                    </div>
+                </OptionGroup>
             </div>
             <div class='column'>
                 <OptionGroup title='Colors' icon={faPalette}>
