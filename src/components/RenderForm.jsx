@@ -4,6 +4,7 @@ import { faGear, faPalette, faMusic, faClock } from '@fortawesome/free-solid-svg
 import OptionGroup from './OptionGroup';
 import Slider from './Slider';
 import HueRangeSlider from './HueRangeSlider';
+import LightnessRangeSlider from './LightnessRangeSlider';
 
 import { render, getGraph } from '../services/API';
 
@@ -15,9 +16,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         backgroundColor: '111111',
         scaleColor: '333333',
         saturation: 70,
-        hueRange: { start: 20, end: 320 },
-        lightnessMin: 10,
-        lightnessMax: 40,
+        hueRange: { min: 20, max: 320 },
+        lightnessRange: { min: 10, max: 40 },
         silouhette: false,
         artistCount: 100,
         hiddenArtists: '',
@@ -55,6 +55,14 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
             hueRange: newHueRange,
         });
     };
+
+    const handleLightnessRangeChange = (newLightnessRange) => {
+        setChanged(true);
+        setState({
+          ...state,
+          lightnessRange: newLightnessRange,
+        });
+      };
 
     const checkUpdate = (graphId, delay) => {
         setTimeout(() => {
@@ -151,14 +159,11 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                             </div>
                             <div className='option'>
                                 <label>
-                                    Minimum lightness
-                                    <input type='number' name='lightnessMin' defaultValue={state.lightnessMin} onChange={handleChange} />
-                                </label>
-                            </div>
-                            <div className='option'>
-                                <label>
-                                    Maximum lightness
-                                    <input type='number' name='lightnessMax' defaultValue={state.lightnessMax} onChange={handleChange} />
+                                    Lightness Range
+                                    <LightnessRangeSlider
+                                        value={state.lightnessRange}
+                                        onChange={handleLightnessRangeChange}
+                                    />
                                 </label>
                             </div>
                         </>

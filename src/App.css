@@ -240,7 +240,7 @@ input[type='text'], input[type='number'] {
     margin: 10px 0 15px;
     cursor: pointer;
 }
-.hue-range-slider .handle {
+.handle {
     position: absolute;
     top: -5px;
     width: 15px;
@@ -251,8 +251,16 @@ input[type='text'], input[type='number'] {
     transform: translateX(-50%);
     cursor: grab;
 }
-.hue-range-slider .handle:active {
+.handle:active {
     cursor: grabbing;
+}
+.lightness-range-slider {
+    position: relative;
+    height: 6px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0 15px;
+    cursor: pointer;
 }
 input[type='submit'] {
     display: block;

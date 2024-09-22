@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const HueRangeSlider = ({ value, onChange }) => {
+const LightnessRangeSlider = ({ value, onChange }) => {
   const [isDragging, setIsDragging] = useState(null);
   const sliderRef = useRef(null);
 
@@ -20,12 +20,12 @@ const HueRangeSlider = ({ value, onChange }) => {
 
     const rect = sliderRef.current.getBoundingClientRect();
     const position = (e.clientX - rect.left) / rect.width;
-    const newValue = Math.max(0, Math.min(Math.round(position * 360), 360));
+    const newValue = Math.max(0, Math.min(Math.round(position * 100), 100));
 
-    if (isDragging === 'start') {
-      onChange({ ...value, start: Math.min(newValue, value.max) });
+    if (isDragging === 'min') {
+      onChange({ ...value, min: Math.min(newValue, value.max) });
     } else {
-      onChange({ ...value, end: Math.max(newValue, value.min) });
+      onChange({ ...value, max: Math.max(newValue, value.min) });
     }
   };
 
@@ -38,29 +38,25 @@ const HueRangeSlider = ({ value, onChange }) => {
 
   const gradientStyle = {
     background: `linear-gradient(to right,
-      hsl(0, 85%, 60%),
-      hsl(60, 85%, 60%),
-      hsl(120, 85%, 60%),
-      hsl(180, 85%, 60%),
-      hsl(240, 85%, 60%),
-      hsl(300, 85%, 60%),
-      hsl(360, 85%, 60%))`
+      hsl(141, 73%, 0%),
+      hsl(141, 73%, 50%),
+      hsl(141, 73%, 100%))`
   };
 
   return (
-    <div className="hue-range-slider" ref={sliderRef} style={gradientStyle}>
+    <div className="lightness-range-slider" ref={sliderRef} style={gradientStyle}>
       <div
-        className="handle start"
-        style={{ left: `${(value.min / 360) * 100}%` }}
-        onMouseDown={handleMouseDown('start')}
+        className="handle min"
+        style={{ left: `${value.min}%` }}
+        onMouseDown={handleMouseDown('min')}
       />
       <div
-        className="handle end"
-        style={{ left: `${(value.max / 360) * 100}%` }}
-        onMouseDown={handleMouseDown('end')}
+        className="handle max"
+        style={{ left: `${value.max}%` }}
+        onMouseDown={handleMouseDown('max')}
       />
     </div>
   );
 };
 
-export default HueRangeSlider;
+export default LightnessRangeSlider;
