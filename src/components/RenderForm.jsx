@@ -7,7 +7,7 @@ import { render, getGraph } from '../services/API';
 const RenderForm = ({ setGraphImage, setLoading }) => {
     const [state, setState] = useState({
         mode: 'artists',
-        graphType: 'stretch',
+        graphType: 'river',
         colorScheme: 'rainbow',
         backgroundColor: '111111',
         scaleColor: '333333',
@@ -83,8 +83,8 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                 <div className='option'>
                     <label htmlFor='graphType'>Graph type</label>
                     <select name='graphType' onChange={handleChange}>
-                        <option value='stretch'>Stretch</option>
                         <option value='river'>River</option>
+                        <option value='stretch'>Stretch</option>
                         <option value='hills'>Hills</option>
                     </select>
                 </div>
