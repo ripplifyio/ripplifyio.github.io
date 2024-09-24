@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { selectHistoryFiles, setEmptyHistoryFile, selectHistoryFilesStatus, fetchHistoryFiles, fetchHistoryFile } from '../slice';
 
 import { authorize } from '../services/API';
@@ -11,6 +12,8 @@ import Loader from '../components/Loader';
 
 import Splash from './Splash';
 import Guide from './Guide';
+import Login from './Login'; // New Login component
+import About from './About'; // New About component
 
 function Main() {
     const dispatch = useDispatch();
@@ -19,7 +22,6 @@ function Main() {
 
     const [loading, setLoading] = useState(false);
     const [token, setToken] = useState(null);
-    const [splashDismissed, setSplashDismissed] = useState(false);
 
     const load = () => {
         console.log(historyFilesStatus);
@@ -74,20 +76,31 @@ function Main() {
     };
 
     return (
-        <>
+        <Router>
             <header>
                 <Logo />
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
-            {loading
-                ? (<Loader caption='Loading' />)
-                    : ((historyFiles === null)
-                        ? (<Loader caption='Loading' />)
-                        : (historyFiles.length > 0
-                            ? <Viewer example={!Boolean(token)} />
-                            : (splashDismissed ? <Guide /> : <Splash action={() => setSplashDismissed(true)}/>)))
-            }
-        </>
+            <Routes>
+                <Route path="/" element={
+                    loading ? (
+                        <Loader caption='Loading' />
+                    ) : token ? (
+                        historyFiles === null ? (
+                            <Loader caption='Loading' />
+                        ) : historyFiles.length > 0 ? (
+                            <Viewer example={false} />
+                        ) : (
+                            <Guide />
+                        )
+                    ) : (
+                        <Splash />
+                    )
+                } />
+                <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
+                <Route path="/about" element={<About />} />
+            </Routes>
+        </Router>
     );
 }
 
