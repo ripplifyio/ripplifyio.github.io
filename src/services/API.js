@@ -73,7 +73,13 @@ export const post = (endpoint, data, headers = {}) => {
 
 export const authorize = (spotifyToken) => {
     return axios
-        .post(API_ROOT + '/authorize', { token: spotifyToken })
+        .post('authorize', { token: spotifyToken })
+        .then((response) => response.data);
+};
+
+export const sendMagicLink = (email) => {
+    return axios
+        .post('magic_link', { email })
         .then((response) => response.data);
 };
 
