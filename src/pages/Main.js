@@ -35,6 +35,7 @@ function Main() {
         let token = localStorage.getItem('token');
         setToken(token);
 
+        /*
         let localHistoryFileId = localStorage.getItem('historyFileId');
         // TODO: can remove this logic later once we are able to make users log in
         if (localHistoryFileId) {
@@ -44,7 +45,7 @@ function Main() {
             }
         } else {
             dispatch(setEmptyHistoryFile());
-        }
+        }*/
 
         if (token) {
             setLoading(true);
