@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { sendMagicLink } from '../services/API';
+import { sendMagicLink, verifyMagicLink } from '../services/API';
 
 const Login = () => {
     const [email, setEmail] = useState(null);
     const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const magicLinkId = urlParams.get('link_id');
+        if (magicLinkId) {
+            verifyMagicLink(magicLinkId).then((response) => {
+                localStorage.token = response.token;
+            });
+        }
+    });
 
     return (
         <div className='Login'>

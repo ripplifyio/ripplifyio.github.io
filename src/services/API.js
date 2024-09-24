@@ -83,6 +83,12 @@ export const sendMagicLink = (email) => {
         .then((response) => response.data);
 };
 
+export const verifyMagicLink = (linkId) => {
+    return axios
+        .post(`magic_link/verify/${linkId}`)
+        .then((response) => response.data);
+};
+
 export const getUser = () => {
 
 };
