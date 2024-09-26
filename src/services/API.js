@@ -78,15 +78,11 @@ export const authorize = (spotifyToken) => {
 };
 
 export const sendMagicLink = (email) => {
-    return axios
-        .post('magic_link', { email })
-        .then((response) => response.data);
+    return post('magic_link', { email });
 };
 
 export const verifyMagicLink = (linkId) => {
-    return axios
-        .post(`magic_link/verify/${linkId}`)
-        .then((response) => response.data);
+    return post(`magic_link/${linkId}`, {});
 };
 
 export const getUser = () => {

@@ -28,7 +28,7 @@ const Login = () => {
             ) : (
                 <>
                     <p>Enter the email you use for Spotify.</p>
-                    <input type='email' placeholder='Email' id='emailInput' onInput={setEmail} />
+                    <input type='email' placeholder='Email' id='emailInput' onChange={(e) => setEmail(e.target.value)} />
                     <a className='button' onClick={() => {
                         sendMagicLink(email).then(() => setSubmitted(true));
                     }}>Next</a>
