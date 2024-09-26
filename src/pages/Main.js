@@ -35,18 +35,6 @@ function Main() {
         let token = localStorage.getItem('token');
         setToken(token);
 
-        /*
-        let localHistoryFileId = localStorage.getItem('historyFileId');
-        // TODO: can remove this logic later once we are able to make users log in
-        if (localHistoryFileId) {
-            //setHistoryFileId(localHistoryFileId);
-            if (historyFilesStatus === 'idle') {
-                dispatch(fetchHistoryFile(localHistoryFileId));
-            }
-        } else {
-            dispatch(setEmptyHistoryFile());
-        }*/
-
         if (token) {
             setLoading(true);
             load();
