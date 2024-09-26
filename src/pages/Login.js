@@ -3,19 +3,20 @@ import React, { useEffect, useState } from 'react';
 import { sendMagicLink, verifyMagicLink } from '../services/API';
 
 const Login = () => {
-    const [email, setEmail] = useState(null);
+    const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const magicLinkId = urlParams.get('link_id');
+        const magicLinkId = urlParams.get('link');
         if (magicLinkId) {
             verifyMagicLink(magicLinkId).then((response) => {
-                localStorage.token = response.token;
+                localStorage.setItem('token', response.token);
+                window.location.reload();
             });
         }
-    });
+    }, []);
 
     return (
         <div className='Login'>
