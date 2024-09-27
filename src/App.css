@@ -152,6 +152,9 @@ article {
     vertical-align: top;
     margin-top: 0;
 }
+.step h2 {
+    margin-top: 8px;
+}
 .step img {
     max-width: 100%;
     border-radius: 10px;
@@ -160,7 +163,7 @@ article {
 .step a {
     color: white;
 }
-.steps button {
+.steps .navigation button {
     margin: 3px;
 }
 .uploader {
