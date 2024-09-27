@@ -98,23 +98,29 @@ export const getHistoryFiles = () => {
 };
 
 export const uploadHistoryFile = (file) => {
-    return post('history_files', null).then((response) => {
+    return post('history_files', {
+        size: file.size,
+    }).then((response) => {
         console.log('Response from initial POST to history_files endpoint:', response);
-        const { url, fileId } = response;
+        const { target, id } = response;
+        // If there's no target presigned URL provided but there is an ID, this file already up and we don't need to reupload it.
+        if (!target && id) {
+            return { success: true, fileId: id }
+        }
         console.log('Trying to upload,', file);
         return axios({
             method: 'put',
-            url,
+            url: target,
             data: file,
             headers: {
                 'Content-Type': 'application/zip',
             },
         }).then((response) => {
             console.log('Response from AWS upload:', response);
-            return post(`history_files/${fileId}/process`)
+            return post(`history_files/${id}/process`)
                 }).then((response) => {
                     console.log('response from starting processing:', response);
-                    return { success: true, fileId: fileId };
+                    return { success: true, fileId: id };
                 }).catch((error) => {
                     console.error('Error starting processing:', error);
                     return { success: false, error: error };
