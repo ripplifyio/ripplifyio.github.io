@@ -331,6 +331,9 @@ input[type='submit'][disabled] {
     align-items: center;
     justify-content: center;
 }
+.loader.center {
+    height: 80vh;
+}
 .bars {
     display: flex;
     align-items: center;

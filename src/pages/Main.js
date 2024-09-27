@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { selectHistoryFiles, setEmptyHistoryFile, selectHistoryFilesStatus, fetchHistoryFiles, fetchHistoryFile } from '../slice';
-
-import { authorize } from '../services/API';
+import { selectHistoryFiles, selectHistoryFilesStatus, fetchHistoryFiles } from '../slice';
 
 import Logo from '../components/Logo';
 import Navbar from '../components/Navbar';
@@ -40,6 +38,8 @@ function Main() {
             load();
         } else {
             const hash = window.location.hash;
+            // When Spotify allows logins
+            /*
             if (hash) {
                 setLoading(true);
                 const spotifyToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
@@ -56,6 +56,7 @@ function Main() {
                         load();
                     });
             }
+            */
         }
     }, []);
 
@@ -70,8 +71,8 @@ function Main() {
                 <Logo />
                 <Navbar isLoggedIn={Boolean(token)} logout={logout} />
             </header>
-            <Routes>
-                <Route path="/" element={
+            <Routes basename={ `/` }>
+                <Route path="" element={
                     loading ? (
                         <Loader caption='Loading' />
                     ) : token ? (
@@ -86,8 +87,8 @@ function Main() {
                         <Splash />
                     )
                 } />
-                <Route path="/login" element={token ? <Navigate to="/" /> : <Login />} />
-                <Route path="/about" element={<About />} />
+                <Route path="login" element={token ? <Navigate to="/" /> : <Login />} />
+                <Route path="about" element={<About />} />
             </Routes>
         </Router>
     );
