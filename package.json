@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://ripplifyio.github.io",
+  "homepage": "https://ripplify.io",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",

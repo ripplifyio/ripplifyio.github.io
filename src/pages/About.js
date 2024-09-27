@@ -1,7 +1,5 @@
 import React from 'react';
 
-import exampleGraphImage from '../images/example.png';
-
 const About = ({ action }) => {
     return (
         <div className='About'>

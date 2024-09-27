@@ -55,16 +55,22 @@ a {
 .splash {
     text-align: center;
     margin-bottom: 50px;
-    height: 80vh;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.splashHeader {
+    margin: 10px auto 20px;
+}
 .splash h2 {
     margin-bottom: 30px;
-    font-size: 50px;
+    font-size: 35px;
+}
+.splash p {
+    margin-bottom: 20px;
+    opacity: 0.8;
 }
 .exampleImage {
     position: absolute;
@@ -77,6 +83,18 @@ a {
     opacity: 0.4;
     animation: hueshift 10s infinite linear;
 }
+.exampleRow {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+    width: 100vw;
+    overflow-x: scroll;
+}
+.exampleRow img {
+    height: 100%;
+}
+
 @keyframes hueshift {
     0% {
         filter: hue-rotate(0deg);
@@ -349,8 +367,8 @@ input[type='submit'][disabled] {
     }
 }
 
-@media (min-width: 600px) {
-    .splash h2 {
-        font-size: 60px;
+@media (max-width: 600px) {
+    .exampleImage {
+        height: 30vh;
     }
 }

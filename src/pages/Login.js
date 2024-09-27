@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react'
+import exampleGraphImage from '../images/example1.png';
 import { sendMagicLink, verifyMagicLink } from '../services/API';
 
 const Login = () => {
@@ -34,6 +34,7 @@ const Login = () => {
                     }}>Next</a>
                 </>
             )}
+            <img className='exampleImage' alt='Example graph of your music listening history' src={exampleGraphImage} />
         </div>
     );
 };
