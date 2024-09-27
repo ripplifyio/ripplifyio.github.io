@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
+
 import { uploadHistoryFile } from '../services/API';
 
 
@@ -8,7 +11,7 @@ const FileUploader = () => {
     const upload = (e) => {
         setUploading(true);
         uploadHistoryFile(e.target.files[0]).then((response) => {
-            console.log('This iis the response', response);
+            console.log('This is the response', response);
             // TODO: this probably shouldn't be here
             if (response.success) {
                 localStorage.setItem('historyFileId', response.fileId);
@@ -23,9 +26,12 @@ const FileUploader = () => {
         <form className='uploader'>
             <input type='file' id='historyFile' accept='.zip' hidden onInput={upload} />
             <label htmlFor='historyFile'>
-                {uploading
-                    ? (<p>Uploading...</p>)
-                    : (<p>Upload History File</p>)}
+                <p>
+                    <FontAwesomeIcon icon={faCloudArrowUp} />
+                    {uploading
+                        ? 'Uploading...'
+                        : 'Upload History File'}
+                </p>
             </label>
         </form>
     );

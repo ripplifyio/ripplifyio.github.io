@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 import FileUploader from '../components/FileUploader';
 
 import uncheckAccountData from '../images/guide/uncheck_account_data.png';
@@ -12,37 +15,42 @@ import dataReadyEmailImage from '../images/guide/data_ready_email.png';
 const steps = [
     {
         content: "Hello! To render your music graph, you'll need to download your Spotify listening history and upload it to Ripplify. This will take around 5 minutes of your time.",
+        nextTitle: 'Start',
     },
     {
         content: "First, visit <a href='https://www.spotify.com/ca-en/account/privacy' target='_blank'>Spotify's Privacy Settings</a>. Scroll to the bottom section, 'Download your data.'",
+        nextTitle: 'I found the section',
     },
     {
         content: "Uncheck <strong>Account Data</strong>, then check <strong>Extended Streaming History</strong>. This is very important to get right, as only Exended Streaming History contains the data necessary to render your graph.",
         images: [uncheckAccountData, checkExtendedImage],
+        nextTitle: 'I made sure only Extended Streaming History is checked',
     },
     {
         content: "Click the button at the very bottom of the screen labelled 'Request Data.' (The below screenshot shows what the button looks like on the Spotify webpage; you must click it there, not on this page.)",
         images: [requestDataButtonImage],
+        nextTitle: 'I clicked Request Data on the Spotify page',
     },
     {
         content: "Now check your email. You'll be asked to confirm your request. Click the button in the email to do so:",
-        images: [confirmationEmailImage]
+        images: [confirmationEmailImage],
+        nextTitle: 'I found the email and clicked Confirm'
     },
     {
-        content: "Return to the privacy settings page. The 'Download your data' section should now look like this:",
+        content: "You'll be brought back to the settings page. You should see a new banner at the top of the page, and the Extended Streaming History section should state that your data is being prepared.",
         images: [privacySettingsPreparingImage, preparingExtendedImage]
     },
     {
-        content: "Now, wait for the arrival of your data dump by email. Regrettably, as indicated on the page, <strong>the Extended Streaming History data can take anywhere from 1 to 30 days for Spotify to compile,</strong> so you may have to wait a while. Unfortunately there's no way to work around this waiting period, but Ripplify will remain ready to generate your music river graph when you receive your data.",
-        images: []
+        content: "Wait to receive your data by email. Spotify unfortunately takes 2-4 weeks to prepare your Extended Streaming History. We will send you an email in 4 weeks to remind you to download the data and provide further instructions.",
+        nextTitle: 'I have my data now',
     },
     {
-        content: "Once you receive the data by email, click the provided link to download the file.",
-        images: [dataReadyEmailImage]
+        content: 'Once you receive the data by email, click the provided link to download the file.',
+        images: [dataReadyEmailImage],
+        nextTitle: 'I downloaded my data file'
     },
     {
-        content: "When you click Download (and log in if necessary), a file will be downloaded called <tt>my_spotify_data.zip</tt>. Upload it below:",
-        images: [],
+        content: "When you click Download (and log in if necessary), a file will be downloaded called <tt>my_spotify_data.zip</tt>. Click below to upload it for rendering:",
         uploader: true,
     }
 ];
@@ -74,10 +82,10 @@ const Guide = () => {
                     )))}
                 </div>
                 <div className='navigation'>
-                    {(0 < currentStep < currentStep.length - 1) && (<button onClick={prevStep}>Previous</button>)}
                     {steps[currentStep].uploader
                         ? (<FileUploader />)
-                        : <button onClick={nextStep}>Next</button>}
+                        : <button onClick={nextStep}>{steps[currentStep].nextTitle || 'Next'} <FontAwesomeIcon icon={faChevronRight} /></button>}
+                    {(0 < currentStep < steps.length - 1) && (<button onClick={prevStep}>Back</button>)}
                 </div>
             </div>
         </article>

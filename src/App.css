@@ -123,6 +123,11 @@ article {
 .steps {
     margin: 15px 0;
     font-size: 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .step {
     text-align: left;
@@ -163,8 +168,9 @@ article {
 .step a {
     color: white;
 }
-.steps .navigation button {
-    margin: 3px;
+.steps button {
+    margin: 5px;
+    padding:
 }
 .uploader {
 
@@ -182,6 +188,9 @@ article {
     padding: 20px;
     border-radius: 10px;
     border: dashed 3px white;
+}
+.uploader svg {
+    margin-right: 5px;
 }
 
 .viewer {
@@ -240,7 +249,7 @@ button, a.button, input[type='submit'] {
     background: #1DB954;
     color: white;
     text-decoration: none;
-    padding: 10px 12px;
+    padding: 10px 15px;
     border: none;
     font: inherit;
     border-radius: 50px;
