@@ -6,17 +6,16 @@ import { uploadHistoryFile, getHistoryFile } from '../services/API';
 
 
 const FileUploader = () => {
-    const [uploading, setUploading] = useState(false);
-    const [processing, setProcessing] = useState(false);
+    const [caption, setCaption] = useState(null);
 
     const upload = (e) => {
-        setUploading(true);
+        setCaption('Uploading...');
         uploadHistoryFile(e.target.files[0]).then((response) => {
             console.log('This is the response', response);
             // TODO: this probably shouldn't be here
             if (response.success) {
-                setProcessing(true);
-                checkProcessFinished();
+                setCaption('Processing...');
+                checkProcessFinished(response.id, 4000);
             }
         }).catch((error) => {
             console.log('Failed performing file upload', error);
@@ -39,9 +38,7 @@ const FileUploader = () => {
             <label htmlFor='historyFile'>
                 <p>
                     <FontAwesomeIcon icon={faCloudArrowUp} />
-                    {uploading
-                        ? 'Uploading...'
-                        : 'Upload History File'}
+                    {caption || 'Upload History File'}
                 </p>
             </label>
         </form>
