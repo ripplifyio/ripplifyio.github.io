@@ -23,7 +23,7 @@ const Login = () => {
     }, []);
 
     return (
-        loading ? (<Loader />) : (
+        loading ? (<Loader caption='Logging in' />) : (
             <div className='Login'>
                 <h2>Log in or register</h2>
                 {submitted ? (
