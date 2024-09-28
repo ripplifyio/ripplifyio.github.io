@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import FileUploader from '../components/FileUploader';
 
@@ -41,7 +41,7 @@ const steps = [
         images: [privacySettingsPreparingImage, preparingExtendedImage]
     },
     {
-        content: "Wait to receive your data by email. Spotify unfortunately takes 2-4 weeks to prepare your Extended Streaming History. We will send you an email in 4 weeks to remind you to download the data and provide further instructions.",
+        content: "Wait to receive your data by email. Spotify unfortunately takes 2-4 weeks to prepare your Extended Streaming History. We will send you an email in 4 weeks to remind you to download the data and provide further instructions. Note that you should follow the download link in the email ASAP, as the file will expire two weeks after you receive the email.",
         nextTitle: 'I have my data now',
     },
     {
@@ -70,9 +70,15 @@ const Guide = () => {
         }
     };
 
+    const skip = () => {
+        setCurrentStep(8);
+    };
+
     return (
         <article>
             <div className='steps'>
+                {(0 < currentStep && currentStep < steps.length) && (<button onClick={prevStep}><FontAwesomeIcon icon={faChevronLeft} /> Back</button>)}
+                {currentStep === 0 && <button onClick={skip}>Skip to upload</button>}
                 <div className='step'>
                     <h3>{currentStep + 1}</h3>
                     <p dangerouslySetInnerHTML={{ __html: steps[currentStep].content }} />
@@ -85,7 +91,6 @@ const Guide = () => {
                     {steps[currentStep].uploader
                         ? (<FileUploader />)
                         : <button onClick={nextStep}>{steps[currentStep].nextTitle || 'Next'} <FontAwesomeIcon icon={faChevronRight} /></button>}
-                    {(0 < currentStep < steps.length - 1) && (<button onClick={prevStep}>Back</button>)}
                 </div>
             </div>
         </article>
