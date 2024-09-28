@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { faGear, faPalette, faMusic, faClock } from '@fortawesome/free-solid-svg-icons';
 
 import OptionGroup from './OptionGroup';
@@ -7,8 +8,11 @@ import HueRangeSlider from './HueRangeSlider';
 import LightnessRangeSlider from './LightnessRangeSlider';
 
 import { render, getGraph } from '../services/API';
+import { selectHistoryFiles } from '../slice';
 
 const RenderForm = ({ setGraphImage, setLoading }) => {
+    const historyFiles = useSelector(selectHistoryFiles);
+
     const [state, setState] = useState({
         mode: 'artists',
         graphType: 'river',
@@ -25,7 +29,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
         monthStart: null,
         monthEnd: null,
         aspectRatio: '2:1',
-        historyFileId: localStorage.historyFileId,
+        historyFileId: historyFiles[0].id,
     });
     const [changed, setChanged] = useState(true);
 
@@ -82,9 +86,14 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        submit();
+    };
+
+    const submit = () => {
         setChanged(false);
         setGraphImage(null);
         setLoading(true);
+        console.log('Submit ran');
         render(state).then((startingGraph) => {
             console.log('This is startingGraph:', startingGraph);
             checkUpdate(startingGraph.id, 5000);
@@ -94,6 +103,10 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
             setLoading(false);
         });
     };
+
+    useEffect(() => {
+        submit();
+    }, []);
 
     return (
         <form className='options' onSubmit={handleSubmit}>
