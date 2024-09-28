@@ -15,7 +15,7 @@ const FileUploader = () => {
             // TODO: this probably shouldn't be here
             if (response.success) {
                 setCaption('Processing...');
-                checkProcessFinished(response.id, 4000);
+                checkProcessFinished(response.fileId, 4000);
             }
         }).catch((error) => {
             console.log('Failed performing file upload', error);
@@ -35,10 +35,10 @@ const FileUploader = () => {
     return (
         <form className='uploader'>
             <input type='file' id='historyFile' accept='.zip' hidden onInput={upload} />
-            <label htmlFor='historyFile'>
+            <label htmlFor='historyFile' className='accent'>
                 <p>
                     <FontAwesomeIcon icon={faCloudArrowUp} />
-                    {caption || 'Upload History File'}
+                    {caption || 'Choose File'}
                 </p>
             </label>
         </form>
