@@ -264,6 +264,9 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
             <div className='column'>
                 <input type='submit' className='accent' value='Generate Graph' disabled={!changed} />
             </div>
+            <div className='column'>
+                <button className='accent' value='Buy Prints' disabled={loading} />
+            </div>
         </form>
     );
 };
