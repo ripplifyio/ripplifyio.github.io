@@ -18,14 +18,6 @@ export const fetchHistoryFile = createAsyncThunk('fetchHistoryFile', async (id) 
     return await getHistoryFile(id);
 });
 
-const getEmptyHistoryFile = async () => {
-    return [];
-}
-export const setEmptyHistoryFile = createAsyncThunk('setEmptyHistoryFile', async () => {
-    console.log('Set empty history file happening');
-    return await getEmptyHistoryFile();
-});
-
 const slice = createSlice({
     name: 'mainSlice',
     initialState,
@@ -52,19 +44,6 @@ const slice = createSlice({
                 state.historyFiles.value = [action.payload];
             })
             .addCase(fetchHistoryFile.rejected, (state, action) => {
-                state.historyFiles.status = 'failed';
-                state.historyFiles.error = action.error.message;
-            })
-
-            // TODO remove this it's a terrible solution
-            .addCase(setEmptyHistoryFile.pending, (state, action) => {
-                state.historyFiles.status = 'loading';
-            })
-            .addCase(setEmptyHistoryFile.fulfilled, (state, action) => {
-                state.historyFiles.status = 'succeeded';
-                state.historyFiles.value = [];
-            })
-            .addCase(setEmptyHistoryFile.rejected, (state, action) => {
                 state.historyFiles.status = 'failed';
                 state.historyFiles.error = action.error.message;
             });
