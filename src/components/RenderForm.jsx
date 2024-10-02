@@ -19,7 +19,7 @@ const RenderForm = ({ graphImage, setGraphImage, loading, setLoading }) => {
         graphType: 'river',
         colorScheme: 'rainbow',
         backgroundColor: '111111',
-        scaleColor: '333333',
+        scaleColor: '555555',
         saturation: 70,
         hueRange: { min: 20, max: 320 },
         lightnessRange: { min: 10, max: 40 },
@@ -29,7 +29,7 @@ const RenderForm = ({ graphImage, setGraphImage, loading, setLoading }) => {
         resolution: 'month',
         monthStart: null,
         monthEnd: null,
-        aspectRatio: '2:1',
+        aspectRatio: '3:2',
         historyFileId: historyFiles[0].id,
     });
     const [changed, setChanged] = useState(true);
@@ -151,7 +151,7 @@ const RenderForm = ({ graphImage, setGraphImage, loading, setLoading }) => {
                     </div>
                 </OptionGroup>
             </div>
-            <div class='column'>
+            <div className='column'>
                 <OptionGroup title='Colors' icon={faPalette}>
                     <div className='option'>
                         <label htmlFor='colorScheme'>Color Scheme</label>
