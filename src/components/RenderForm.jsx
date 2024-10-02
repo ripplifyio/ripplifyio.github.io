@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { faGear, faPalette, faMusic, faClock } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear, faPalette, faMusic, faClock, faImage } from '@fortawesome/free-solid-svg-icons';
 
 import OptionGroup from './OptionGroup';
 import Slider from './Slider';
@@ -10,7 +11,7 @@ import LightnessRangeSlider from './LightnessRangeSlider';
 import { render, getGraph } from '../services/API';
 import { selectHistoryFiles } from '../slice';
 
-const RenderForm = ({ setGraphImage, setLoading }) => {
+const RenderForm = ({ graphImage, setGraphImage, loading, setLoading }) => {
     const historyFiles = useSelector(selectHistoryFiles);
 
     const [state, setState] = useState({
@@ -107,6 +108,12 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
     useEffect(() => {
         submit();
     }, []);
+
+    const openStripe = (event) => {
+        event.preventDefault();
+        window.open('https://buy.stripe.com/6oEdS90Uc406bG86oo?client_reference_id=' + graphImage, '_blank');
+        return false;
+    };
 
     return (
         <form className='options' onSubmit={handleSubmit}>
@@ -265,7 +272,7 @@ const RenderForm = ({ setGraphImage, setLoading }) => {
                 <input type='submit' className='accent' value='Generate Graph' disabled={!changed} />
             </div>
             <div className='column'>
-                <button className='accent' value='Buy Prints' disabled={loading} />
+                <button className='accent' onClick={openStripe}><FontAwesomeIcon icon={faImage} /> Buy Prints</button>
             </div>
         </form>
     );

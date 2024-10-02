@@ -9,7 +9,7 @@ const Viewer = ({}) => {
 
     return (
         <div className={`viewer`}>
-            <RenderForm setGraphImage={setGraphImage} setLoading={setLoading} />
+            <RenderForm graphImage={graphImage} setGraphImage={setGraphImage} loading={loading} setLoading={setLoading} />
             {graphImage
                 ? (<img className='graph' alt='Graph of your music listening history' src={graphImage} />)
                 : (<Placeholder loading={loading} />)}
