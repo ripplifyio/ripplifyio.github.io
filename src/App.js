@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Main from './pages/Main';
 
-import './App.css';
+import './css/App.css';
 //import * as Globals from './Globals';
 
 function App() {
