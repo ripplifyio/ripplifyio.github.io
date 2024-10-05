@@ -13,11 +13,11 @@
 }
 body {
     background: #0c6b2a;
+}
+.App {
     color: white;
     font-family: 'Lexend Deca', sans-serif;
     font-size: 18px;
-}
-.App {
 }
 header {
     padding: 15px 15px 0;
@@ -72,14 +72,17 @@ a {
     margin-bottom: 20px;
     opacity: 0.8;
 }
-.exampleImage {
-    position: absolute;
+.background {
+    position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
     z-index: -1;
+    background-color: #111;
+}
+img.background {
+    object-fit: cover;
     opacity: 0.4;
     animation: hueshift 10s infinite linear;
 }
@@ -392,7 +395,7 @@ input[type='submit'][disabled] {
 }
 
 @media (max-width: 600px) {
-    .exampleImage {
+    .exampleRow img {
         height: 30vh;
     }
 }

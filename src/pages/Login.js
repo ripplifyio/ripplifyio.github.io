@@ -43,7 +43,7 @@ const Login = () => {
                         }}>Next</a>
                     </>
                 )}
-                <img className='exampleImage' alt='Example graph of your music listening history' src={exampleGraphImage} />
+                <img className='background image' alt='Example graph of your music listening history' src={exampleGraphImage} />
             </div>
         )
     );
