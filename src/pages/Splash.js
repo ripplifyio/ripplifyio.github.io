@@ -13,7 +13,7 @@ const Splash = () => {
                 {/*Spotify login:
                 <a className='button big' href={`${Globals.AUTH_ENDPOINT}?client_id=${Globals.CLIENT_ID}&redirect_uri=${Globals.REDIRECT_URI}&response_type=${Globals.RESPONSE_TYPE}&scope=${Globals.SCOPE}`}>Login with Spotify</a>*/}
                 {/*<a className='button big' onClick={action}>Visualize your own taste</a>*/}
-                <p>Ripplify graphs how your choice of artists has evolved through your life, capturing how every moment has interacted with your music.</p>
+                <p>Ripplify graphs how your choice of artists has evolved through your life, capturing how moments interact with your music.</p>
                 <Link className='button big' to='/login'>Visualize your own taste!</Link>
             </div>
             <div className='exampleRow'>
