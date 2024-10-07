@@ -5,8 +5,6 @@ import exampleGraphImage2 from '../images/example2.png';
 import exampleGraphImage3 from '../images/example3.png';
 import exampleGraphImage4 from '../images/example4.png';
 
-import '../css/Splash.css';
-
 const Splash = () => {
     return (
         <div className='splash'>
