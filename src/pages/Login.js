@@ -31,7 +31,7 @@ const Login = () => {
                 <h2>Log in or register</h2>
                 {submitted ? (
                     <>
-                        <p>Check your email and click the link you were sent to finish logging in.</p>
+                        <p>Check your inbox at <strong>{email}</strong> and click the link you were sent to finish logging in.</p>
                     </>
                 ) : (
                     <>
