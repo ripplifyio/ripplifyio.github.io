@@ -18,7 +18,7 @@ const steps = [
         nextTitle: 'Start',
     },
     {
-        content: "First, visit <a href='https://www.spotify.com/ca-en/account/privacy' target='_blank'>Spotify's Privacy Settings</a>. Scroll to the bottom section, 'Download your data.'",
+        content: "First, visit <a href='https://www.spotify.com/ca-en/account/privacy' target='_blank'>Spotify's Privacy Settings</a>. Scroll to the bottom section, 'Download your data.' But <strong>DON'T download your data yet!</strong>",
         nextTitle: 'I found the section',
     },
     {
