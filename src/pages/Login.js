@@ -16,6 +16,9 @@ const Login = () => {
             verifyMagicLink(magicLinkId).then((response) => {
                 localStorage.setItem('token', response.token);
                 window.location.reload();
+            }).catch((error) => {
+                alert('There was an error logging you in. Please return to the homepage and try again.');
+                window.location.href = 'https://ripplify.io/login';
             });
         } else {
             setLoading(false);
