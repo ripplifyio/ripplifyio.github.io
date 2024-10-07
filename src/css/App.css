@@ -90,12 +90,11 @@ img.background {
     margin-top: 12px;
     display: flex;
     flex-direction: row;
-    height: 70vh;
     width: 100vw;
     overflow-x: scroll;
 }
 .exampleRow img {
-    height: 100%;
+    width: 100vw;
 }
 
 @keyframes hueshift {

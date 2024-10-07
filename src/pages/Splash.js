@@ -16,11 +16,11 @@ const Splash = () => {
                 <p>Ripplify graphs how your choice of artists has evolved through your life, capturing how every moment has interacted with your music.</p>
                 <Link className='button big' to='/login'>Visualize your own taste!</Link>
             </div>
-            <div class='exampleRow'>
+            <div className='exampleRow'>
                 <img alt='Example graph of music listening history' src={exampleGraphImage3} />
-                <img alt='Example graph of music listening history' src={exampleGraphImage1} />
+                {/*<img alt='Example graph of music listening history' src={exampleGraphImage1} />
                 <img alt='Example graph of music listening history' src={exampleGraphImage2} />
-                <img alt='Example graph of music listening history' src={exampleGraphImage4} />
+                <img alt='Example graph of music listening history' src={exampleGraphImage4} />*/}
             </div>
             <div className='background'></div>
         </div>
