@@ -102,10 +102,13 @@ export const uploadHistoryFile = (file) => {
         size: file.size,
     }).then((response) => {
         console.log('Response from initial POST to history_files endpoint:', response);
-        const { target, id } = response;
+        const { target, id, status } = response;
         // If there's no target presigned URL provided but there is an ID, this file already up and we don't need to reupload it.
         if (!target && id) {
-            return { success: true, fileId: id }
+            if (status === null || status === 'error') {
+                return processHistoryFile(id);
+            }
+            return { success: true, fileId: id };
         }
         console.log('Trying to upload,', file);
         return axios({
@@ -117,16 +120,21 @@ export const uploadHistoryFile = (file) => {
             },
         }).then((response) => {
             console.log('Response from AWS upload:', response);
-            return post(`history_files/${id}/process`)
-                }).then((response) => {
-                    console.log('response from starting processing:', response);
-                    return { success: true, fileId: id };
-                }).catch((error) => {
-                    console.error('Error starting processing:', error);
-                    return { success: false, error: error };
-                });
+            return processHistoryFile(id);
         }).catch(error => {
             console.error('Error uploading to S3:', error);
+            return { success: false, error: error };
+        });
+    });
+};
+
+const processHistoryFile = (id) => {
+    return post(`history_files/${id}/process`)
+        .then((response) => {
+            console.log('response from starting processing:', response);
+            return { success: true, fileId: id };
+        }).catch((error) => {
+            console.error('Error starting processing:', error);
             return { success: false, error: error };
         });
 };

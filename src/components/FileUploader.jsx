@@ -32,7 +32,7 @@ const FileUploader = () => {
                     setTimeout(() => checkProcessFinished(historyFileId, delay * 2), delay);
                     break;
                 case 'error':
-                    if (historyFile.extended) {
+                    if (!historyFile.extended) {
                         alert('You\'ve uploaded a Spotify Account Data file, which is not the Extended Streaming History file that is required for Ripplify. Please restart this guide and pay special attention to step 3, which explains how to change the data file you\'re requesting.');
                     } else {
                         alert('An error occurred processing your file. Please check that you uploaded the correct zip and try again.');
