@@ -410,6 +410,12 @@ input[type='submit'][disabled] {
 }
 
 @media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    #logo {
+        margin-bottom: 10px;
+    }
     .exampleRow img {
         height: 30vh;
     }
