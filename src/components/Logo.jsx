@@ -5,10 +5,10 @@ import logoImage from '../images/logo_color.png';
 
 const Logo = () => {
     return (
-        <div id='logo'>
+        <a id='logo' href='/'>
             <img src={logoImage} alt='Logo' />
             <h1>Ripplify</h1>
-        </div>
+        </a>
     );
 };
 
