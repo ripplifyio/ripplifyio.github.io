@@ -129,6 +129,11 @@ img.background {
     margin: 10px 0;
 }
 
+.textBlock {
+    padding: 20px;
+    color: white;
+}
+
 article {
     text-align: center;
     margin: 0 auto;
