@@ -10,8 +10,9 @@ import Loader from '../components/Loader';
 
 import Splash from './Splash';
 import Guide from './Guide';
-import Login from './Login'; // New Login component
-import About from './About'; // New About component
+import Login from './Login';
+import About from './About';
+import Prints from './Prints';
 
 function Main() {
     const dispatch = useDispatch();
@@ -89,6 +90,7 @@ function Main() {
                 } />
                 <Route path="login" element={token ? <Navigate to="/" /> : <Login />} />
                 <Route path="about" element={<About />} />
+                <Route path="prints" element={<Prints />} />
             </Routes>
         </Router>
     );
