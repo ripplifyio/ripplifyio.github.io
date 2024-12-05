@@ -15,6 +15,7 @@ const Splash = () => {
                 {/*<a className='button big' onClick={action}>Visualize your own taste</a>*/}
                 <p>Ripplify graphs how your choice of artists has evolved through your life, capturing how moments interact with your music.</p>
                 <Link className='button big' to='/login'>Visualize your own taste!</Link>
+                <Link className='button big' to='/login'>Merch and Gift Certificates</Link>
             </div>
             <div className='exampleRow'>
                 <img alt='Example graph of music listening history' src={exampleGraphImage3} />
