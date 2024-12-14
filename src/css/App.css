@@ -45,13 +45,24 @@ h1 {
     display: inline-block;
     vertical-align: middle;
 }
-nav {
-    vertical-align: middle;
-}
-
 a {
     color: #1DB954;
 }
+nav {
+    vertical-align: middle;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+nav button {
+    margin-left: 15px;
+}
+
 .splash {
     text-align: center;
     margin-bottom: 50px;
