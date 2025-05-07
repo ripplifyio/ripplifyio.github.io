@@ -83,6 +83,9 @@ nav button {
     margin-bottom: 20px;
     opacity: 0.8;
 }
+.splash .button {
+    margin: 0 5px;
+}
 .background {
     position: fixed;
     top: 0;
